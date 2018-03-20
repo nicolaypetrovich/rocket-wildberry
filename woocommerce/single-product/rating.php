@@ -30,7 +30,11 @@ $rating_count = $product->get_rating_count();
 $review_count = $product->get_review_count();
 $average      = $product->get_average_rating();
 
+
+//TODO:what is wrong with rating?
 //if ( $rating_count > 0 ) : ?>
+
+<div class="raty staticStar" data-star="<?php echo $average;?>"></div>
 <div class="product_reviews">
 <!--	<div class="woocommerce-product-rating">-->
     <span class="reviews_count"><?php echo $review_count;?> </span>

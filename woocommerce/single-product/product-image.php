@@ -35,24 +35,29 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 ) );
 ?>
 <div class="product_data_vew">
-<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?> product_vew_img" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
-	<figure class="woocommerce-product-gallery__wrapper">
+<div class=" product_vew_img" >
+<!--	<figure class="woocommerce-product-gallery__wrapper">-->
 		<?php
-		if ( has_post_thumbnail() ) {
-			$html  = wc_get_gallery_image_html( $post_thumbnail_id, true );
-		} else {
-			$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
-			$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
-			$html .= '</div>';
-		}
-        $full_size         = apply_filters( 'woocommerce_gallery_full_size', apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' ) );
-        $full_src          = wp_get_attachment_image_src( $attachment_id, $full_size );
+//		if ( has_post_thumbnail() ) {
+//			$html  = wc_get_gallery_image_html( $post_thumbnail_id, true );
+//		} else {
+//			$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
+//			$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
+//			$html .= '</div>';
+//		}
+//        $full_size         = apply_filters( 'woocommerce_gallery_full_size', apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' ) );
+//        $full_src          = wp_get_attachment_image_src( $attachment_id, $full_size );
 
-        $image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $product->ID ), 'single-post-thumbnail' );
-        echo $image_url[0];
+        if(has_post_thumbnail()){
+            $image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $product->ID ), 'single-post-thumbnail' )[0];
+        }else{
+            $image_url=esc_url( wc_placeholder_img_src() );
+        }
+
+        echo '<img src="'.$image_url.'" alt="">';
 //		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id );
 
 		do_action( 'woocommerce_product_thumbnails' );
 		?>
-	</figure>
+<!--	</figure>-->
 </div>
