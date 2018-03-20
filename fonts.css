@@ -1,0 +1,11 @@
+@font-face{font-family:'Proxima Nova Lt';src:url('fonts/ProximaNova/ProximaNova-Semibold.woff2') format('woff2'),
+url('fonts/ProximaNova/ProximaNova-Semibold.woff') format('woff');font-weight:600;font-style:normal;}
+@font-face{font-family:'Proxima Nova Lt';src:url('fonts/ProximaNova/ProximaNova-SemiboldIt.woff2') format('woff2'),
+url('fonts/ProximaNova/ProximaNova-SemiboldIt.woff') format('woff');font-weight:600;font-style:italic;}
+@font-face{font-family:'Proxima Nova Rg';src:url('fonts/ProximaNova/ProximaNova-Regular.woff2') format('woff2'),
+url('fonts/ProximaNova/ProximaNova-Regular.woff') format('woff');font-weight:normal;font-style:normal;}
+@font-face{font-family:'Proxima Nova Rg';src:url('fonts/ProximaNova/ProximaNova-Bold.woff2') format('woff2'),
+url('fonts/ProximaNova/ProximaNova-Bold.woff') format('woff');font-weight:bold;font-style:normal;}
+@font-face{font-family:'Proxima Nova Rg';src:url('fonts/ProximaNova/ProximaNova-RegularIt.woff2') format('woff2'),
+url('fonts/ProximaNova/ProximaNova-RegularIt.woff') format('woff');font-weight:normal;font-style:italic;}
+@font-face{font-family:"raty";font-style:normal;font-weight:normal;src:url("fonts/Raty/raty.eot");src:url("fonts/Raty/raty.eot?#iefix") format("embedded-opentype");src:url("fonts/Raty/raty.svg#raty") format("svg");src:url("fonts/Raty/raty.ttf") format("truetype");src:url("fonts/Raty/raty.woff") format("woff");}

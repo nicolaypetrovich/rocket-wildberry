@@ -1,0 +1,12 @@
+/*
+Theme Name: Wildberry
+.
+*/
+
+@import url("css/style.css");
+
+
+
+.added_to_cart{
+    visibility: hidden;
+}
