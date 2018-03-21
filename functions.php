@@ -16,19 +16,30 @@ function mm_styles_method()
 add_action( 'wp_enqueue_scripts', 'mm_styles_method' );
 
 function mm_scripts_method() {
+//    wp_deregister_script('jquery');
+//    wp_register_script( 'jquery', get_template_directory_uri().'/js/jquery-3.2.1.js', array(), '20180130', true);
+//    wp_enqueue_script( 'jquery' );
 
     wp_register_script( 'jquery-migrate', get_template_directory_uri().'/js/jquery-migrate-1.2.1.min.js',array('jquery'),'3.0.0',true);
     wp_enqueue_script( 'jquery-migrate' );
 
 
-    wp_register_script( 'owl.carousel', get_template_directory_uri().'/js/owl.carousel.min.js', array(), '20180130', true);
+    wp_register_script( 'owl.carousel', get_template_directory_uri().'/js/owl.carousel.min.js', array('jquery'), '20180130', true);
     wp_enqueue_script( 'owl.carousel' );
 
-//    wp_register_script( 'jquery.raty', get_template_directory_uri().'/js/jquery.raty.js', array(), '20180130', true);
-//    wp_enqueue_script( 'jquery.raty' );
+    wp_register_script( 'jquery.raty', get_template_directory_uri().'/js/jquery.raty.js', array('jquery'), '20180130', true);
+    wp_enqueue_script( 'jquery.raty' );
 
-    wp_register_script( 'customscript', get_template_directory_uri().'/js/script.js',array('jquery','jquery-migrate','jquery-arcticmodal','owl.carousel','ion.rangeSlider'),'20180130',true);
+
+    wp_register_script( 'customscript', get_template_directory_uri().'/js/script.js',array('jquery'),'20180130',true);
     wp_enqueue_script( 'customscript' );
+
+
+
+
+ 
+
+
 
 }
 

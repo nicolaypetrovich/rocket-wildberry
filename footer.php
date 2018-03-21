@@ -58,9 +58,9 @@
                 <div class="share_box">
                     <span class="footer_title">Мы в соцсетях:</span>
                     <div class="share_box_inner">
-                        <a href="#" class="instag"></a>
-                        <a href="#" class="facebook"></a>
-                        <a href="#" class="vk"></a>
+                        <a href="https://<?php echo get_theme_mod('wildberry_theme_instagram'); ?>" class="instag"></a>
+                        <a href="https://<?php echo get_theme_mod('wildberry_theme_facebook'); ?>" class="facebook"></a>
+                        <a href="https://<?php echo get_theme_mod('wildberry_theme_vk'); ?>" class="vk"></a>
                     </div>
                 </div>
             </div>

@@ -12,3 +12,5 @@ function true_wordform($num, $form_for_1, $form_for_2, $form_for_5){
         return $form_for_1;
     return $form_for_5;
 }
+
+

@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title><?php the_title();?></title>
     <meta name = "format-detection" content = "telephone=no" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
 
@@ -17,7 +17,7 @@
         <div class="container">
             <div class="header_top">
                 <div class="logo">
-                    <a href="index.html"></a>
+                    <a href="<?php echo get_site_url()?>"></a>
                 </div>
                 <div class="header_search">
                     <form>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="header_phone">
                     <span class="phone_icon"></span>
-                    (096) 504 32 74
+                    <?php echo get_theme_mod('wildberry_theme_phone'); ?>
                 </div>
                 <div class="header_call">
                     <button class="red_btn">Заказать звонок</button>
@@ -83,12 +83,12 @@
                         </ul>
                     </nav>
                 </div>
-                <a href="#" class="header_cart">
+                <a href="cart" class="header_cart">
 							<span class="header_cart_count">
-								<span class="cart_count">0</span> товаров
+								<span class="cart_count"><?php echo WC()->cart->get_cart_contents_count();?> </span> <?php echo true_wordform(WC()->cart->get_cart_contents_count(),'товар','товара','товаров');?>
 							</span>
                     <span class="header_cart_sum">
-								<span class="cart_sum">0</span><span class="grn">&#8372;</span>
+								<span class="cart_sum"><?php echo WC()->cart->get_cart_total(); ?></span>
 							</span>
                 </a>
             </div>

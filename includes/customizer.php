@@ -2,8 +2,6 @@
 
 
 
-
-
 function prefix_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting('wildberry_theme_facebook');
@@ -26,6 +24,14 @@ function prefix_customize_register( $wp_customize ) {
     $wp_customize->add_control('wildberry_theme_vk',
         array(
             'label' => 'VK',
+            'type' => 'text',
+            'section' => 'title_tagline',
+        )  );
+
+    $wp_customize->add_setting('wildberry_theme_phone');
+    $wp_customize->add_control('wildberry_theme_phone',
+        array(
+            'label' => 'Phone',
             'type' => 'text',
             'section' => 'title_tagline',
         )  );

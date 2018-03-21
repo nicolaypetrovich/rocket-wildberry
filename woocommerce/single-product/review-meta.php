@@ -28,15 +28,16 @@ if ( '0' === $comment->comment_approved ) { ?>
 	<p class="meta"><em class="woocommerce-review__awaiting-approval"><?php esc_attr_e( 'Your review is awaiting approval', 'woocommerce' ); ?></em></p>
 
 <?php } else { ?>
-
-	<p class="meta">
-		<strong class="woocommerce-review__author"><?php comment_author(); ?></strong> <?php
+<div class="product_reviews_info">
+    <p class="meta">
+		<div class="woocommerce-review__author author"><?php comment_author(); ?></div> <?php
 
 		if ( 'yes' === get_option( 'woocommerce_review_rating_verification_label' ) && $verified ) {
 			echo '<em class="woocommerce-review__verified verified">(' . esc_attr__( 'verified owner', 'woocommerce' ) . ')</em> ';
 		}
 
-		?><span class="woocommerce-review__dash">&ndash;</span> <time class="woocommerce-review__published-date" datetime="<?php echo get_comment_date( 'c' ); ?>"><?php echo get_comment_date( wc_date_format() ); ?></time>
-	</p>
-
+		?> <time class="woocommerce-review__published-date" datetime="<?php echo get_comment_date( 'c' ); ?>"><?php echo get_comment_date( wc_date_format() ); ?></time>
+    <div class="raty staticStar" data-star="<?php echo intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );?>"></div>
+    </p>
+</div>
 <?php }
