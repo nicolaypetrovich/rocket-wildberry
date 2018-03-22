@@ -1,4 +1,4 @@
-$(function(){
+jQuery(function(){
 // IPad/IPhone
 	var viewportmeta = document.querySelector && document.querySelector('meta[name="viewport"]'),
 	ua = navigator.userAgent,
@@ -17,14 +17,14 @@ $(function(){
     var regM = /ipod|ipad|iphone/gi,
      result = ua.match(regM)
     if(!result) {
-     $('.menu li').each(function(){
-      if($(">ul", this)[0]){
-       $(">a", this).toggle(
+     jQuery('.menu li').each(function(){
+      if(jQuery(">ul", this)[0]){
+       jQuery(">a", this).toggle(
         function(){
          return false;
         },
         function(){
-         window.location.href = $(this).attr("href");
+         window.location.href = jQuery(this).attr("href");
         }
        );
       } 
@@ -42,12 +42,12 @@ if(!result){
 }
 document.write('<meta name="viewport" content="width=device-width,initial-scale=1.0'+userScale+'">')
 
-if($(".owl-carousel").length){
-   include("js/owl.carousel.min.js");
- }
-if($(".raty").length){
-   include("js/jquery.raty.js");
- }
+// if(jQuery(".owl-carousel").length){
+//    include("js/owl.carousel.min.js");
+//  }
+// if(jQuery(".raty").length){
+//    include("js/jquery.raty.js");
+//  }
 
   //----Include-Function----
 function include(url){ 
@@ -55,7 +55,7 @@ function include(url){
 }
 //------validation form------
   function checkEmail(currInput){
-    var pattern=/^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\.[a-zA-Z]{2,4}$/;
+    var pattern=/^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\.[a-zA-Z]{2,4}jQuery/;
       if(!pattern.exec(currInput.val())){
           return false;
         }
@@ -64,8 +64,8 @@ function include(url){
         }
       }
   function checkName(currInput){
-    var pattern=/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/;
-    if(!pattern.exec($(currInput).val())){
+    var pattern=/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}jQuery/;
+    if(!pattern.exec(jQuery(currInput).val())){
       return false;
     }
     else{
@@ -73,7 +73,7 @@ function include(url){
     }
   }
   function checkPhone (currInput) {
-    var pattern = /(\(?\d{3}\)?[\- ]?)?[\d\- ]{4,10}$/;
+    var pattern = /(\(?\d{3}\)?[\- ]?)?[\d\- ]{4,10}jQuery/;
     if(!pattern.exec(currInput.val())){
       return false;
     }
@@ -82,9 +82,9 @@ function include(url){
     }
   }
 
-  $('.sendBtn').click(function(e){
+  jQuery('.sendBtn').click(function(e){
     var errors = false;
-        var currentForm = $(this).closest("form.formSend"),
+        var currentForm = jQuery(this).closest("form.formSend"),
         name = currentForm.find('input[name="name"]'),
         phone = currentForm.find('input[name="phone"]'),
         email = currentForm.find('input[name="email"]');
@@ -121,99 +121,99 @@ function include(url){
     }
 });
 
-$(document).ready(function(){
-  $(".header_catalog_box").on("click", function(){
-    if($('.header_catalog_list').hasClass('active')){
-       $(this).children('.header_catalog_list').removeClass('active').slideUp();
+jQuery(document).ready(function(){
+  jQuery(".header_catalog_box").on("click", function(){
+    if(jQuery('.header_catalog_list').hasClass('active')){
+       jQuery(this).children('.header_catalog_list').removeClass('active').slideUp();
     }
     else{
-     $(this).children('.header_catalog_list').addClass('active').slideDown();
+     jQuery(this).children('.header_catalog_list').addClass('active').slideDown();
     }
 
   });
   
   //--------------modal window------
- $(".modal_btn").on("click", function(){
+ jQuery(".modal_btn").on("click", function(){
     var template = "<div class='modal_container'></div>";
-    var height = $(window).height();
-    var modal = $(this).data('modal');
+    var height = jQuery(window).height();
+    var modal = jQuery(this).data('modal');
     console.log(height);
-  $(template).prependTo('body');
-  $('#' + modal).prependTo('.modal_container').addClass('active');
-  $('.modal_container').css('height', height);
-  $("body").addClass("show_modal");
-  $("html").addClass("show_modal");
+  jQuery(template).prependTo('body');
+  jQuery('#' + modal).prependTo('.modal_container').addClass('active');
+  jQuery('.modal_container').css('height', height);
+  jQuery("body").addClass("show_modal");
+  jQuery("html").addClass("show_modal");
   
   document.addEventListener('touchmove', function(e) {
-      if($("body").hasClass("show_modal")){
+      if(jQuery("body").hasClass("show_modal")){
         e.preventDefault();
         return true;
       }
     });
  });
- $(".modal_close").on("click", function(){
-      if($("body").hasClass("show_modal")){
-        $("body").removeClass("show_modal");
-        $("html").removeClass("show_modal");
-        $('.modal').appendTo('body').removeClass('active');
-        $('.modal_container').remove();
-        $("#menu_overlay").fadeOut();
+ jQuery(".modal_close").on("click", function(){
+      if(jQuery("body").hasClass("show_modal")){
+        jQuery("body").removeClass("show_modal");
+        jQuery("html").removeClass("show_modal");
+        jQuery('.modal').appendTo('body').removeClass('active');
+        jQuery('.modal_container').remove();
+        jQuery("#menu_overlay").fadeOut();
 
       }
     
   });
 
- $(document).on("click ontouchstart", function(event){
-    if($(event.target).closest('.modal, .modal_btn').length)return;
-      $("body").removeClass("show_modal");
-      $("html").removeClass("show_modal");
-      $('.modal').appendTo('body').removeClass('active');
-      $('.modal_container').remove();
-      $("#menu_overlay").fadeOut();
+ jQuery(document).on("click ontouchstart", function(event){
+    if(jQuery(event.target).closest('.modal, .modal_btn').length)return;
+      jQuery("body").removeClass("show_modal");
+      jQuery("html").removeClass("show_modal");
+      jQuery('.modal').appendTo('body').removeClass('active');
+      jQuery('.modal_container').remove();
+      jQuery("#menu_overlay").fadeOut();
      
       event.stopPropagation()
 
   })
 //-------input radio checked-----
- $('.input_radio').on("click", function(){
-   if($('.input_radio:checked')){
-     $(this).parent().parent().addClass('active');
-     $(this).parent().parent().siblings().removeClass('active');
-       if($('#pickup:checked').length){
-          $(this).parents('.delivery_top').next('.delivery_data_pickup').addClass('active');
+ jQuery('.input_radio').on("click", function(){
+   if(jQuery('.input_radio:checked')){
+     jQuery(this).parent().parent().addClass('active');
+     jQuery(this).parent().parent().siblings().removeClass('active');
+       if(jQuery('#pickup:checked').length){
+          jQuery(this).parents('.delivery_top').next('.delivery_data_pickup').addClass('active');
        }
       else{
-      $(this).parents('.delivery_top').next('.delivery_data_pickup').removeClass('active');
+      jQuery(this).parents('.delivery_top').next('.delivery_data_pickup').removeClass('active');
       }
-     if($('#company:checked').length){
-      $(this).parents('.payment_box_inner').next('.call_info').children('.payment_company_box').addClass('active');
+     if(jQuery('#company:checked').length){
+      jQuery(this).parents('.payment_box_inner').next('.call_info').children('.payment_company_box').addClass('active');
       }
       else{
-       $(this).parents('.payment_box_inner').next('.call_info').children('.payment_company_box').removeClass('active');
+       jQuery(this).parents('.payment_box_inner').next('.call_info').children('.payment_company_box').removeClass('active');
        }
      }
 });
 //---------------input type file-------------------
-if($('#file').length){
-  var inp = $('#file');
+if(jQuery('#file').length){
+  var inp = jQuery('#file');
   inp.change(function(){
     var file_name = inp.val().replace( "C:\\fakepath\\", '' );
-    $('.file_text').text( file_name);
+    jQuery('.file_text').text( file_name);
   }).change();
 }
 //--owl-carousel--------------------  
-  if($('.owl-carousel').length){
-      $(".owl-carousel").each(function(){
-        var $this = $(this);
-        if($this.hasClass('single')){
-          $this.owlCarousel({
+  if(jQuery('.owl-carousel').length){
+      jQuery(".owl-carousel").each(function(){
+        var jQuerythis = jQuery(this);
+        if(jQuerythis.hasClass('single')){
+          jQuerythis.owlCarousel({
             items:1,
             loop:true,
             nav:true
           });
         }
         else{
-          $this.owlCarousel({
+          jQuerythis.owlCarousel({
               nav:true,
               items:3,
               responsiveClass:true,
@@ -244,47 +244,50 @@ if($('#file').length){
         });
     }
 //-------------------raty--------------------------
- if ($('.raty').length){
-    $('.raty').each(function(){
-      var itemStar = $(this).attr("data-star");
-      if($(this).hasClass('staticStar')){
-        $(this).raty({
+ if (jQuery('.raty').length){
+    jQuery('.raty').each(function(){
+      var itemStar = jQuery(this).attr("data-star");
+      if(jQuery(this).hasClass('staticStar')){
+        jQuery(this).raty({
            starType: 'i',
            readOnly: true,
            score: itemStar
         });
       }
       else{
-        $(this).raty({
+        jQuery(this).raty({
            starType: 'i',
-          score: function() {return $(this).attr('data-star');}
+            target: '#rating', //this is needed for woocommerce raiting
+            targetType : 'score',
+            targetKeep : true,
+          score: function() {return jQuery(this).attr('data-star');}
         });
       }
     });
   }
 
 //------tabs------------------------
- if ($('.tabs').length){
-     $(".tabs li").on("click", function(){
-      var item = $(this).data('item');
-      if(!$(this).hasClass('active')){
-        $(this).addClass('active').siblings().removeClass('active');
-      }
-      if(!$('#' + item).hasClass('active')){
-        $('#' + item).addClass('active').siblings().removeClass('active');
-      }
-     });
-  }
+//  if (jQuery('.tabs').length){
+//      jQuery(".tabs li").on("click", function(){
+//       var item = jQuery(this).data('item');
+//       if(!jQuery(this).hasClass('active')){
+//         jQuery(this).addClass('active').siblings().removeClass('active');
+//       }
+//       if(!jQuery('#' + item).hasClass('active')){
+//         jQuery('#' + item).addClass('active').siblings().removeClass('active');
+//       }
+//      });
+//   }
 //---------for open reviews on click-----
- if ($('.reviews_lk').length){
-  $('.reviews_lk').on("click", function(){
-    event.preventDefault();
-    $('#tabs3').addClass('active').siblings().removeClass('active');
-    $('[data-item=tabs3]').addClass('active').siblings().removeClass('active');;
-  });
-}
+//  if (jQuery('.reviews_lk').length){
+//   jQuery('.reviews_lk').on("click", function(){
+//     event.preventDefault();
+//     jQuery('#tabs3').addClass('active').siblings().removeClass('active');
+//     jQuery('[data-item=tabs3]').addClass('active').siblings().removeClass('active');;
+//   });
+// }
 //---------custom select--------
-  $.fn.extend({
+  jQuery.fn.extend({
     /**
     ** Emulates select form element
     ** @return jQuery
@@ -292,12 +295,12 @@ if($('#file').length){
     customSelect : function(){
      var template = "<div class='active_option open_select'></div><ul class='options dropdown'></ul>";
       return this.each(function(){
-        var $this = $(this);
-        $this.prepend(template);
+        var jQuerythis = jQuery(this);
+        jQuerythis.prepend(template);
 
-        var active = $this.children('.active_option'),
-         list = $this.children('.options'),
-         select = $this.children('select').hide(),
+        var active = jQuerythis.children('.active_option'),
+         list = jQuerythis.children('.options'),
+         select = jQuerythis.children('select').hide(),
          options = select.children('option'),
          iClass = active.attr('class');
 
@@ -308,16 +311,16 @@ if($('#file').length){
         );
 
         active.on('click', function(){
-          $this.toggleClass('active');
+          jQuerythis.toggleClass('active');
         });
 
         options.each(function(){
-          var optionOuter = $('<li></li>'),
-            optionInner = $('<a></a>',{
-              text : $(this).text(),
+          var optionOuter = jQuery('<li></li>'),
+            optionInner = jQuery('<a></a>',{
+              text : jQuery(this).text(),
               href : '#',
-              'data-value' : $(this).val(),
-              class: $(this).data('color-class')
+              'data-value' : jQuery(this).val(),
+              class: jQuery(this).data('color-class')
           }),
           tpl = optionOuter.append(optionInner);
           list.append(tpl);
@@ -326,17 +329,17 @@ if($('#file').length){
 
         list.on("click", "a", function(event){
           event.preventDefault();
-          var t = $(this).text(),
-              v = $(this).attr('data-value');
+          var t = jQuery(this).text(),
+              v = jQuery(this).attr('data-value');
               active.text(t);
               iClass.replace(iClass,"active_option open_select");
-              active.attr('class', iClass +" "+ $(this).attr("class"));
+              active.attr('class', iClass +" "+ jQuery(this).attr("class"));
               select.val(v);
-              $(this).closest('.dropdown').removeClass("active");
+              jQuery(this).closest('.dropdown').removeClass("active");
           });
-        $(document).click(function(event) {
-          if ($(event.target).closest(".open_select").length) return;
-          $(".custom_select").removeClass("active");
+        jQuery(document).click(function(event) {
+          if (jQuery(event.target).closest(".open_select").length) return;
+          jQuery(".custom_select").removeClass("active");
           event.stopPropagation();
         });
 
@@ -344,38 +347,38 @@ if($('#file').length){
 
   }});
 
-  $('.custom_select').customSelect();
+  jQuery('.custom_select').customSelect();
 
 });
-$(window).on('load resize', function() {
-    var oldWidth = $(window).data("oldwidth");
-    var newWidth = $(window).width();
+jQuery(window).on('load resize', function() {
+    var oldWidth = jQuery(window).data("oldwidth");
+    var newWidth = jQuery(window).width();
     var widthSm  = 992;
     var widthXs  = 767;
       if (newWidth != oldWidth) {
         if (newWidth < widthSm && (!oldWidth || oldWidth >= widthSm)) {
         
-            $('nav').prependTo('.header');
-            $('.menu').wrap('<div class="container">');
-            $('.header_search').appendTo('.header_nav');
-            $('.header_info').insertAfter('.header_top .logo');
-            $('.header_phone').prependTo('.header_call');
-            $('.catalog_sort').insertBefore('.catalog_box_inner');
+            jQuery('nav').prependTo('.header');
+            jQuery('.menu').wrap('<div class="container">');
+            jQuery('.header_search').appendTo('.header_nav');
+            jQuery('.header_info').insertAfter('.header_top .logo');
+            jQuery('.header_phone').prependTo('.header_call');
+            jQuery('.catalog_sort').insertBefore('.catalog_box_inner');
           console.log(111);
               
           }
         else if (newWidth >= widthSm && (!oldWidth || oldWidth < widthSm)) {
         
-            $('nav').appendTo('.header_nav');
-            $('.menu').unwrap('.container');
-            $('.header_search').insertAfter('.header_top .logo')
-            $('.header_info').appendTo('.header_top');
-            $('.header_phone').insertAfter('.header_search');
-            $('.catalog_sort').prependTo('.catalog_box');
+            jQuery('nav').appendTo('.header_nav');
+            jQuery('.menu').unwrap('.container');
+            jQuery('.header_search').insertAfter('.header_top .logo')
+            jQuery('.header_info').appendTo('.header_top');
+            jQuery('.header_phone').insertAfter('.header_search');
+            jQuery('.catalog_sort').prependTo('.catalog_box');
           console.log(222);
         }
         if (newWidth < widthXs && (!oldWidth || oldWidth >= widthXs)) {
-           $('.header_search').insertAfter('.header_bottom');
+           jQuery('.header_search').insertAfter('.header_bottom');
           
           console.log(333);
               
@@ -388,6 +391,6 @@ $(window).on('load resize', function() {
 
         
         
-        $(window).data("oldwidth", newWidth);
+        jQuery(window).data("oldwidth", newWidth);
       }
   });
