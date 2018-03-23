@@ -55,12 +55,12 @@ function mm_box_load_widget() {
 
 add_action( 'widgets_init', 'mm_box_load_widget' );
 
-include 'includes/customizer.php';
+include 'includes/mm-customizer.php';
 include 'includes/usefull-func.php';
 
 if ( class_exists( 'WooCommerce' ) ) {
 	include 'includes/woocommerce-hooks-stuff.php';
-	include 'includes/widgets.php';
+	include 'includes/mm-new-widgets.php';
 
 	function wc_active_shipping_register_widget() {
 		register_widget( 'WP_Widget_Recent_Posts2' );

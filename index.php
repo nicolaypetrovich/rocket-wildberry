@@ -4,6 +4,49 @@
             <section>
                 <div class="main_slider">
                     <div class="owl-carousel single">
+                        <?php
+                        if (!empty(get_theme_mod('wildberry_theme_slider1_link')) ||
+                            !empty(get_theme_mod('wildberry_theme_slider1_name')) ||
+                            !empty(get_theme_mod('wildberry_theme_slider1_desc')) ||
+                            !empty(get_theme_mod('wildberry_theme_slider1_img1')) ||
+                            !empty(get_theme_mod('wildberry_theme_slider1_img2'))
+                        ): ?>
+                            <div class="carousel_item">
+                                <div class="carousel_message">
+                                    <div><?php echo get_theme_mod('wildberry_theme_slider1_name'); ?></div>
+                                    <span><?php echo get_theme_mod('wildberry_theme_slider1_desc'); ?></span>
+                                    <div>
+                                        <a href="<?php echo get_theme_mod('wildberry_theme_slider1_link'); ?>" class="red_btn">Подробнее</a>
+                                    </div>
+                                </div>
+<!--                                <img src="images/slide1.png" alt="" class="visible">-->
+<!--                                <img src="images/slide_resp1.png" alt="" class="hide">-->
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/slide1.png" alt="">
+                            </div>
+                        <?php endif; ?>
+
+
+                        <div class="carousel_item">
+                            <div class="carousel_message">
+                                <div>Новинка!</div>
+                                <span>Замороженные ягоды по рецепту дяди повара</span>
+                                <div>
+                                    <a href="#" class="red_btn">Подробнее</a>
+                                </div>
+                            </div>
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/slide1.png" alt="">
+                        </div>
+
+                        <div class="carousel_item">
+                            <div class="carousel_message">
+                                <div>Новинка!</div>
+                                <span>Замороженные ягоды по рецепту дяди повара</span>
+                                <div>
+                                    <a href="#" class="red_btn">Подробнее</a>
+                                </div>
+                            </div>
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/slide1.png" alt="">
+                        </div>
                         <div class="carousel_item">
                             <div class="carousel_message">
                                 <div>Новинка!</div>
