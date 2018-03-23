@@ -36,7 +36,7 @@ if ( '0' === $comment->comment_approved ) { ?>
 			echo '<em class="woocommerce-review__verified verified">(' . esc_attr__( 'verified owner', 'woocommerce' ) . ')</em> ';
 		}
 
-		?> <time class="woocommerce-review__published-date" datetime="<?php echo get_comment_date( 'c' ); ?>"><?php echo get_comment_date( wc_date_format() ); ?></time>
+		?> <time class="woocommerce-review__published-date" datetime="<?php echo get_comment_date( 'c' ); ?>"><?php echo get_comment_date( 'd.m.Y, H:i' ); ?></time>
     <div class="raty staticStar" data-star="<?php echo intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );?>"></div>
     </p>
 </div>

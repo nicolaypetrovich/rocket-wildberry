@@ -82,7 +82,7 @@ if (!comments_open()) {
                 }
 
                 if (get_option('woocommerce_enable_review_rating') === 'yes') {
-                    $comment_form['fields']['raiting'] = '
+                    $comment_form['comment_field'] = '
                             <div class="form_item">
                                             <label>Оценка <span class="required">*</span></label><div class="form_item_type">
                                                 <div  class="raty"></div>
@@ -99,9 +99,9 @@ if (!comments_open()) {
 						</select></div>';
                 }
 
-                $comment_form['fields']['comment_field'] = '<div class="form_item comment-form-comment"><label for="comment">' . esc_html__('Отзыв', 'woocommerce') . ' <span class="required">*</span></label><div class="form_item_type"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea></div></div>';
-
-                comment_form(apply_filters('woocommerce_product_review_comment_form_args', $comment_form));
+                $comment_form['comment_field'] .= '<div class="form_item comment-form-comment"><label for="comment">' . esc_html__('Отзыв', 'woocommerce') . ' <span class="required">*</span></label><div class="form_item_type"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea></div></div>';
+                //copy paste function to switch around 2 groups of fields. Amazing
+                mm_my_comment_form(apply_filters('woocommerce_product_review_comment_form_args', $comment_form));
                 ?>
             </div>
         </div>

@@ -33,59 +33,13 @@ get_header('shop'); ?>
             do_action('woocommerce_before_main_content');
             ?>
             <div class="catalog_box_inner">
-                <aside>
-                    <div class="aside_item_inner">
-                        <h4 class="title4">Свежие рецепты:</h4>
-                        <a href="#" class="aside_item">
-                            <span class="name_product">Желе из замороженного кокоса</span>
-                            <span class="aside_product_img">
-		  					<img src="images/product1.png" alt="">
-		  				</span>
-                        </a>
-                        <a href="#" class="aside_item">
-                            <span class="name_product">Желе из замороженного ананаса</span>
-                            <span class="aside_product_img">
-		  					<img src="images/product2.png" alt="">
-		  				</span>
-                        </a>
-                        <a href="#" class="aside_item">
-                            <span class="name_product">Желе из замороженного банана</span>
-                            <span class="aside_product_img">
-		  					<img src="images/product3.png" alt="">
-		  				</span>
-                        </a>
-                        <a href="#" class="aside_item">
-                            <span class="name_product">Желе из замороженного манго</span>
-                            <span class="aside_product_img">
-		  					<img src="images/product2.png" alt="">
-		  				</span>
-                        </a>
-                    </div>
-                    <div class="aside_item_inner">
-                        <h4 class="title4">Вы смотрели:</h4>
-                        <a href="#" class="aside_item">
-                            <span class="name_product">Ананас замороженный 0.5 кг</span>
-                            <div class="raty staticStar" data-star="3"></div>
-                            <span class="aside_product_img">
-		  					<img src="images/product1.png" alt="">
-		  				</span>
-                        </a>
-                        <a href="#" class="aside_item">
-                            <span class="name_product">Клубника замороженная 0.5 кг</span>
-                            <div class="raty staticStar" data-star="2"></div>
-                            <span class="aside_product_img">
-		  					<img src="images/product2.png" alt="">
-		  				</span>
-                        </a>
-                        <a href="#" class="aside_item">
-                            <span class="name_product">Ананас замороженный 0.5 кг</span>
-                            <div class="raty staticStar" data-star="5"></div>
-                            <span class="aside_product_img">
-		  					<img src="images/product3.png" alt="">
-		  				</span>
-                        </a>
-                    </div>
-                </aside>
+                   <?php
+                   echo '<aside>';
+                   if (is_active_sidebar('mm-box-shop-sidebar')) {
+                       dynamic_sidebar('mm-box-shop-sidebar');
+                   }
+                   echo '</aside>';
+                   ?>
                 <?php while (have_posts()) : the_post(); ?>
 
                     <?php wc_get_template_part('content', 'single-product'); ?>
