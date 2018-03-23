@@ -28,7 +28,8 @@ global $product;
 
 
         <span class="product-title name_product"><?php echo $product->get_name(); ?></span>
-        <?php if (!empty($show_rating)) : ?>
+
+        <?php if (!empty($product->get_average_rating())) : ?>
             <div class="raty staticStar" data-star="<?php echo $product->get_average_rating(); ?>"></div>
         <?php endif; ?>
         <span class="aside_product_img">

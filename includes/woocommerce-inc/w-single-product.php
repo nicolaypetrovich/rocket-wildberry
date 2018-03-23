@@ -17,22 +17,30 @@ add_action('woocommerce_single_product_summary', 'mm_additional_sp_data', 20);
 
 function mm_additional_sp_data()
 {
-    global $product;
+
     echo '<div class="product_data">';
+
     ?>
     <dl class="product_data_info">
-        <div>
-            <dt>Производитель:</dt>
-            <dd>Украина</dd>
-        </div>
+        <?php if (!empty(get_post_meta(get_the_ID(), '_manufacturer_field', true))): ?>
+            <div>
+                <dt>Производитель:</dt>
+                <dd><?php echo get_post_meta(get_the_ID(), '_manufacturer_field', true); ?></dd>
+            </div>
+        <?php endif; ?>
+
+    <?php if (!empty(get_post_meta(get_the_ID(), '_composition_field', true))): ?>
         <div>
             <dt>Состав:</dt>
-            <dd>Абрикос</dd>
+            <dd><?php echo get_post_meta(get_the_ID(), '_composition_field', true); ?></dd>
         </div>
+    <?php endif; ?>
+    <?php if (!empty(get_post_meta(get_the_ID(), '_min_order_field', true))): ?>
         <div>
             <dt>Минимальный заказ:</dt>
-            <dd>0,5кг</dd>
+            <dd><?php echo get_post_meta(get_the_ID(), '_min_order_field', true); ?></dd>
         </div>
+    <?php endif; ?>
     </dl>
     <?php
 
@@ -73,8 +81,8 @@ function woo_remove_product_tabs($tabs)
 function woo_new_product_tab_content()
 {
 
-    // The new tab content
 
+    // The new tab content
     echo '<div class="recipes_item">
                                 <a href="#" class="product_img">
                                     <img src="images/product3.png" alt="">
@@ -84,21 +92,20 @@ function woo_new_product_tab_content()
                                 <time datetime="2018-02-23">07.02.2018</time>
          </div>';
 
-
 }
 
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 
 
-remove_action('woocommerce_review_before_comment_meta','woocommerce_review_display_rating',10);
+remove_action('woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10);
 
 
+remove_action('woocommerce_review_comment_text', 'woocommerce_review_display_comment_text', 10);
+add_action('woocommerce_review_comment_text', 'mm_review_display_comment_text', 10);
 
-remove_action('woocommerce_review_comment_text','woocommerce_review_display_comment_text',10);
-add_action('woocommerce_review_comment_text','mm_review_display_comment_text',10);
-
-function mm_review_display_comment_text(){
+function mm_review_display_comment_text()
+{
     echo '<div class="reviews_message">';
     comment_text();
     echo '</div>';
