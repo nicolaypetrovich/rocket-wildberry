@@ -1,27 +1,34 @@
 <?php get_header(); ?>
 
-	<div id="content" class="content">
-		<div class="container">
+    <div id="content" class="content">
+        <div class="container">
 
-			<ul class="breadcrumbs">
+            <ul class="breadcrumbs">
 				<?php woocommerce_breadcrumb(); ?>
-			</ul>
+            </ul>
             <div class="catalog_box_inner">
-                <?php
-                echo '<aside>';
-                if (is_active_sidebar('mm-box-shop-sidebar')) {
-                    dynamic_sidebar('mm-box-shop-sidebar');
-                }
-                echo '</aside>';
-                ?>
+				<?php
+				echo '<aside>';
+				if ( is_active_sidebar( 'mm-box-shop-sidebar' ) ) {
+					dynamic_sidebar( 'mm-box-shop-sidebar' );
+				}
+				echo '</aside>';
+				?>
                 <div class="catalog_box">
-                    <?php while (have_posts()) : the_post();
-                        the_content();
-                    endwhile; // End of the loop. ?>
+					<?php while ( have_posts() ) : the_post();
+						the_content();
+					endwhile; // End of the loop.
+
+					$recipe_products = get_field('wild_connection');
+					foreach ($recipe_products as $recipe_product){
+						$product=wc_get_product( $recipe_product );
+						wc_get_template_part('content', 'product');
+					}
+					?>
                     <div class="recipies_box_title">
                         <h1 class="title2 pecipe_name">Клубничный торт</h1>
                         <div class="recipe_time">
-                            <time datetime="2012-02-23"><?php the_date()?></time>
+                            <time datetime="2012-02-23"><?php the_date() ?></time>
                         </div>
                     </div>
                     <div class="recipes_box">
@@ -47,51 +54,26 @@
                         <div class="recipe_ingredients">
                             <p></p>
                             <ul>
-                                <li>1. Разогрейте духовку до 180 С. Смажьте маслом и посыпьте мукой три круглых формы для выпечки (для 3 коржей). Или выпекайте коржи по очереди. В этом случае тесто держите в холодильнике.</li>
-                                <li>2. В большой миске взбейте сахар, пакетик желе и сливочное масло до пышности. Добавьте яйца по одному, тщательно взбивая после каждого добавления. Вмешайте муку и разрыхлитель и добавляйте в тесто, взбивая, поочередно с молоком.</li>
+                                <li>1. Разогрейте духовку до 180 С. Смажьте маслом и посыпьте мукой три круглых формы
+                                    для выпечки (для 3 коржей). Или выпекайте коржи по очереди. В этом случае тесто
+                                    держите в холодильнике.
+                                </li>
+                                <li>2. В большой миске взбейте сахар, пакетик желе и сливочное масло до пышности.
+                                    Добавьте яйца по одному, тщательно взбивая после каждого добавления. Вмешайте муку и
+                                    разрыхлитель и добавляйте в тесто, взбивая, поочередно с молоком.
+                                </li>
                             </ul>
                         </div>
                         <div class="ingredients_use">
                             <h4 class="title5">Используемые товары</h4>
                             <div class="ingredients">
-                                <div class="product_item new">
-                                    <a href="#" class="product_img">
-                                        <img src="images/product1.png" alt="">
-                                    </a>
-                                    <div class="product_reviews_box">
-                                        <div class="raty staticStar" data-star="3" title="regular"><i data-alt="1" class="star-on-png" title="regular"></i>&nbsp;<i data-alt="2" class="star-on-png" title="regular"></i>&nbsp;<i data-alt="3" class="star-on-png" title="regular"></i>&nbsp;<i data-alt="4" class="star-off-png" title="regular"></i>&nbsp;<i data-alt="5" class="star-off-png" title="regular"></i><input name="score" type="hidden" value="3" readonly=""></div>
-                                        <div class="product_reviews">
-                                            <span>70</span>
-                                            <a href="#" class="reviews_lk">Отзывов</a>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="product_name">Клубника замороженная</a>
-                                    <div class="product_packing">0,5 кг</div>
-                                    <div class="product_price">50<span>грн.</span></div>
-                                    <div class="product_cart">
-                                        <button class="red_btn">В корзину</button>
-                                        <button class="product_call_btn"></button>
-                                    </div>
-                                </div>
-                                <div class="product_item">
-                                    <a href="#" class="product_img">
-                                        <img src="images/product2.png" alt="">
-                                    </a>
-                                    <div class="product_reviews_box">
-                                        <div class="raty staticStar" data-star="5" title="gorgeous"><i data-alt="1" class="star-on-png" title="gorgeous"></i>&nbsp;<i data-alt="2" class="star-on-png" title="gorgeous"></i>&nbsp;<i data-alt="3" class="star-on-png" title="gorgeous"></i>&nbsp;<i data-alt="4" class="star-on-png" title="gorgeous"></i>&nbsp;<i data-alt="5" class="star-on-png" title="gorgeous"></i><input name="score" type="hidden" value="5" readonly=""></div>
-                                        <div class="product_reviews">
-                                            <span>47</span>
-                                            <a href="#" class="reviews_lk">Отзывов</a>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="product_name">Ежевика замороженная</a>
-                                    <div class="product_packing">0,5 кг</div>
-                                    <div class="product_price">65<span>грн.</span></div>
-                                    <div class="product_cart">
-                                        <button class="red_btn">В корзину</button>
-                                        <button class="product_call_btn"></button>
-                                    </div>
-                                </div>
+								<?php
+								$recipe_products = get_field( 'wild_connection' );
+								foreach ( $recipe_products as $recipe_product ) {
+									$product = wc_get_product( $recipe_product );
+									wc_get_template_part( 'content', 'product' );
+								}
+								?>
                             </div>
                         </div>
                     </div>
@@ -99,7 +81,7 @@
             </div>
 
 
-		</div>
-	</div>
+        </div>
+    </div>
 
 <?php get_footer();

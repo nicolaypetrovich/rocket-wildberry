@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title><?php the_title(); ?></title>
+<!--    <title>--><?php //the_title(); ?><!--</title>-->
     <meta name="format-detection" content="telephone=no"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
 
@@ -21,11 +21,14 @@
                     <a href="<?php echo get_site_url() ?>"></a>
                 </div>
                 <div class="header_search">
-                    <form>
+
+                    <form  role="search" method="get" id="searchformnormal" action="<?php echo home_url( '/' ) ?>">
                         <input type="text" placeholder="Поиск по сайту" class="search"
                                onblur="if(this.placeholder=='') this.placeholder='Поиск по сайту'"
-                               onfocus="if(this.placeholder =='Поиск по сайту' ) this.placeholder=''">
-                        <button class="search_btn"></button>
+                               onfocus="if(this.placeholder =='Поиск по сайту' ) this.placeholder=''"
+                               name="s">
+                        <input type="hidden" name="search-type" value="normal"/>
+                        <button type="submit" id="searchsubmitnormal" class="search_btn"></button>
                     </form>
                 </div>
                 <div class="header_phone">

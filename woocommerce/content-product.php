@@ -27,12 +27,13 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div <?php post_class('product_item'); ?>>
+<div <?php post_class(array('product_item',!empty(get_post_meta( $product->get_id(), '_mm_product_new', true ))?'new':'')); ?>>
 	<?php
 	/**
 	 * woocommerce_before_shop_loop_item hook.
 	 *
-	 * @hooked woocommerce_template_loop_product_link_open - 10
+	 * @hooked woocommerce_template_loop_product_link_open - 10 unhooked
+	 * @hooked mm_template_loop_product_link_open - 10
 	 */
 	do_action( 'woocommerce_before_shop_loop_item' );
 

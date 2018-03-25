@@ -24,8 +24,8 @@ function mm_scripts_method() {
 	wp_enqueue_script( 'jquery-migrate' );
 
 
-    wp_register_script( 'owl.carousel', get_template_directory_uri().'/js/owl.carousel.min.js', array('jquery'), '20180130', true);
-    wp_enqueue_script( 'owl.carousel' );
+	wp_register_script( 'owl.carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), '20180130', true );
+	wp_enqueue_script( 'owl.carousel' );
 
 	wp_register_script( 'jquery.raty', get_template_directory_uri() . '/js/jquery.raty.js', array( 'jquery' ), '20180130', true );
 	wp_enqueue_script( 'jquery.raty' );
@@ -54,6 +54,27 @@ function mm_box_load_widget() {
 }
 
 add_action( 'widgets_init', 'mm_box_load_widget' );
+
+
+function searchfilter( $query ) {
+
+	if ( $query->is_search && ! is_admin() ) {
+		if ( isset( $_GET['search-type'] ) ) {
+			$type = $_GET['search-type'];
+			if ( 'normal' == $type ) {
+				$query->set( 'post_type', array( 'post', 'product' ) );
+			} else {
+				$query->set( 'post_type', array( 'post' ) );
+			}
+		} else {
+			$query->set( 'post_type', array( 'post' ) );
+		}
+	}
+	return $query;
+}
+
+add_filter( 'pre_get_posts', 'searchfilter' );
+
 
 include 'includes/mm-customizer.php';
 include 'includes/usefull-func.php';
