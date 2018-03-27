@@ -115,13 +115,6 @@ function prefix_customize_register( $wp_customize ) {
 	) );
 
 
-	$wp_customize->add_setting( 'wildberry_theme_44' );
-	$wp_customize->add_control( 'wildberry_theme_44',
-		array(
-			'label'   => 'Телефон для города3',
-			'type'    => 'text',
-			'section' => 'mytheme_new_section_name',
-		) );
 
 
 	for ( $i = 1; $i < 6; $i ++ ) {
@@ -213,6 +206,19 @@ function prefix_customize_register( $wp_customize ) {
 			) );
 	}
 
+    $wp_customize->add_section( 'wildberry_header_catalogs', array(
+        'title'    => 'Хедер. Каталог товаров.',
+        'priority' => 32
+    ) );
+
+
+    $wp_customize->add_setting( 'wildberry_theme_catalogs' );
+    $wp_customize->add_control( 'wildberry_theme_catalogs',
+        array(
+            'label'   => 'Телефон для города3',
+            'type'    => 'text',
+            'section' => 'wildberry_header_catalogs',
+        ) );
 
 }
 

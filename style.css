@@ -8,5 +8,5 @@ Theme Name: Wildberry
 
 
 .added_to_cart{
-    visibility: hidden;
+    display: none;
 }

@@ -22,9 +22,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <div>
-	<dt><?php echo wp_kses_post( $package_name ); ?></dt>
-	<dd data-title="<?php echo esc_attr( $package_name ); ?>">
+
 		<?php if ( 1 < count( $available_methods ) ) : ?>
+        <?php $method=$available_methods[0];
+            $method = current( $available_methods );
+            if(0==$method->cost)
+            echo wc_price($method->cost);
+            else
+
+            printf( '<input type="hidden" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d" value="%2$s" class="shipping_method" />', $index, esc_attr( $method->id ) );
+        ?>
 			<ul id="shipping_method">
 				<?php foreach ( $available_methods as $method ) : ?>
 					<li>
@@ -40,8 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</ul>
 		<?php elseif ( 1 === count( $available_methods ) ) :  ?>
 			<?php
-				$method = current( $available_methods );
-				printf( '%3$s <input type="hidden" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d" value="%2$s" class="shipping_method" />', $index, esc_attr( $method->id ), wc_cart_totals_shipping_method_label( $method ) );
+				printf( '<input type="hidden" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d" value="%2$s" class="shipping_method" />', $index, esc_attr( $method->id ) );
 				do_action( 'woocommerce_after_shipping_rate', $method, $index );
 			?>
 
@@ -51,6 +57,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php echo '<p class="woocommerce-shipping-contents"><small>' . esc_html( $package_details ) . '</small></p>'; ?>
 		<?php endif; ?>
 
-	</dd>
+
 
 </div>

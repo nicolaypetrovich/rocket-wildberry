@@ -1,4 +1,8 @@
 <?php
+
+
+remove_action('woocommerce_before_shop_loop','wc_print_notices',10);
+
 add_action( 'woocommerce_before_shop_loop_item_title', 'mm_loop_product_review_box', 15 );
 
 function mm_loop_product_review_box() {
@@ -23,7 +27,8 @@ add_action( 'woocommerce_shop_loop_item_title', 'mm_loop_product_title', 10 );
 add_action( 'woocommerce_shop_loop_item_title', 'mm_loop_product_weight', 15 );
 
 function mm_loop_product_title() {
-	echo '<h2 class="woocommerce-loop-product__title product_name">' . get_the_title() . '</h2>';
+    global $product;
+	echo '<a href="'.$product->get_permalink().'" class="woocommerce-loop-product__title product_name">' . get_the_title() . '</a>';
 
 }
 
@@ -37,3 +42,15 @@ function mm_loop_product_weight() {
 }
 
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+
+remove_action('woocommerce_before_shop_loop_item_title','woocommerce_template_loop_product_thumbnail',10);
+add_action('woocommerce_before_shop_loop_item_title','mm_template_loop_product_thumbnail',10);
+
+function mm_template_loop_product_thumbnail(){
+   echo '<div class="product_img">';
+    echo  woocommerce_get_product_thumbnail();
+    echo '</div>';
+    echo '</a>'; //closing open link
+}
+
+remove_action('woocommerce_after_shop_loop_item','woocommerce_template_loop_product_link_close',5);

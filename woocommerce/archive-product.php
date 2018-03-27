@@ -51,7 +51,7 @@ get_header('shop');
                 /**
                  * Hook: woocommerce_before_shop_loop.
                  *
-                 * @hooked wc_print_notices - 10
+                 * @hooked wc_print_notices - 10 unhooked
                  * @hooked woocommerce_result_count - 20 not hooked
                  * @hooked woocommerce_catalog_ordering - 30
                  */

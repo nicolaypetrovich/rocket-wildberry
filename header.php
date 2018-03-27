@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-<!--    <title>--><?php //the_title(); ?><!--</title>-->
+    <!--    <title>--><?php //the_title(); ?><!--</title>-->
     <meta name="format-detection" content="telephone=no"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
 
@@ -22,7 +22,7 @@
                 </div>
                 <div class="header_search">
 
-                    <form  role="search" method="get" id="searchformnormal" action="<?php echo home_url( '/' ) ?>">
+                    <form role="search" method="get" id="searchformnormal" action="<?php echo home_url('/') ?>">
                         <input type="text" placeholder="Поиск по сайту" class="search"
                                onblur="if(this.placeholder=='') this.placeholder='Поиск по сайту'"
                                onfocus="if(this.placeholder =='Поиск по сайту' ) this.placeholder=''"
@@ -51,50 +51,34 @@
 
                 </div>
             </div>
+
             <div class="header_bottom">
                 <div class="header_catalog_box">
                     <span class="catalog_btn"></span>
                     <span>Каталог товаров</span>
                     <ul class="header_catalog_list">
-                        <li>
-                            <span class="catalog_icon"><img
-                                        src="<?php echo get_template_directory_uri(); ?>/images/icons/cherry.png"
-                                        alt=""></span>
-                            <a href="#">Ягоды замороженные</a>
-                        </li>
-                        <li>
-                            <span class="catalog_icon"><img
-                                        src="<?php echo get_template_directory_uri(); ?>/images/icons/apple.png" alt=""></span>
-                            <a href="#">Фрукты замороженные</a>
-                        </li>
-                        <li>
-                            <span class="catalog_icon"><img
-                                        src="<?php echo get_template_directory_uri(); ?>/images/icons/veg.png"
-                                        alt=""></span>
-                            <a href="#">Овощи замороженные</a>
-                        </li>
-                        <li>
-                            <span class="catalog_icon"><img
-                                        src="<?php echo get_template_directory_uri(); ?>/images/icons/mix.png"
-                                        alt=""></span>
-                            <a href="#">Смеси замороженные</a>
-                        </li>
-                        <li>
-                            <span class="catalog_icon"><img
-                                        src="<?php echo get_template_directory_uri(); ?>/images/icons/fries.png" alt=""></span>
-                            <a href="#">Картофель фри</a>
-                        </li>
-                        <li>
-                            <span class="catalog_icon"><img
-                                        src="<?php echo get_template_directory_uri(); ?>/images/icons/bakery.png"
-                                        alt=""></span>
-                            <a href="#">Хлебобулочные изделия</a>
-                        </li>
-                        <li>
-                            <span class="catalog_icon"><img
-                                        src="<?php echo get_template_directory_uri(); ?>/images/icons/semi.png" alt=""></span>
-                            <a href="#">Полуфабрикаты</a>
-                        </li>
+                        <?php
+                        $args = array(
+                            'taxonomy' => "product_cat",
+                            'hide_empty' => true,
+                        );
+                        $product_categories = get_terms($args);
+                        foreach ($product_categories as $product_category) {
+                            ?>
+                            <li>
+                                <?php
+                                $thumbnail_id = get_term_meta($product_category->term_id, 'thumbnail_id', true);
+                                $image = wp_get_attachment_url($thumbnail_id); ?>
+                                <span class="catalog_icon">
+                            <img src="<?php echo $image; ?>"
+                                 alt="<?php echo $product_category->name; ?>">
+                                </span>
+                                <a href="<?php echo get_term_link( $product_category->slug, 'product_cat' ); ?>"><?php echo $product_category->name; ?></a>
+                            </li>
+                            <?php
+                        }
+                        ?>
+
                     </ul>
                 </div>
                 <div class="header_nav">
@@ -108,14 +92,8 @@
                         </ul>
                     </nav>
                 </div>
-                <a href="cart" class="header_cart">
-							<span class="header_cart_count">
-								<span class="cart_count"><?php echo WC()->cart->get_cart_contents_count(); ?> </span> <?php echo true_wordform(WC()->cart->get_cart_contents_count(), 'товар', 'товара', 'товаров'); ?>
-							</span>
-                            <span class="header_cart_sum">
-								<span class="cart_sum"><?php echo WC()->cart->get_cart_total(); ?></span>
-							</span>
-                </a>
+                <?php mm_show_cart_info();?>
+
             </div>
         </div>
     </div>
