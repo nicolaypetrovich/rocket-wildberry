@@ -107,6 +107,7 @@ function cart_update_qty_script()
     if (is_cart()) :
         ?>
         <script>
+
             jQuery('div.woocommerce').on('click', '.qty', function () {
                 jQuery("[name='update_cart']").removeAttr('disabled');
             });
@@ -119,7 +120,7 @@ function cart_update_qty_script()
     endif;
 }
 
-
+//cart
 add_filter('woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
 
 function mm_show_cart_info(){
@@ -153,17 +154,7 @@ function mm_show_info_about_free_shipping()
                 if ($value->min_amount > 0) $min_amounts[] = $value->min_amount;
             }
         }
-        // Get Free Shipping Methods for all other ZONES & populate array $min_amounts
-
-        $delivery_zones = WC_Shipping_Zones::get_zones();
-
-        foreach ($delivery_zones as $key => $delivery_zone) {
-            foreach ($delivery_zone['shipping_methods'] as $key => $value) {
-                if ($value->id === "free_shipping") {
-                    if ($value->min_amount > 0) $min_amounts[] = $value->min_amount;
-                }
-            }
-        }
+        // Get Free Shipping for all zones is not needed
         if (is_array($min_amounts))
             $min_amount = min($min_amounts);
 

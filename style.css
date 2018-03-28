@@ -10,3 +10,17 @@ Theme Name: Wildberry
 .added_to_cart{
     display: none;
 }
+
+tr.cart_item>td {
+    padding-bottom: 15px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}

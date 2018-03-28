@@ -104,13 +104,13 @@
 						<?php foreach ( (array) $reviews as $review ): ?>
                             <div class="reviwes_item">
                                 <div class="reviwes_top">
-                                    <a href="<?php echo get_permalink($review->comment_post_ID);?>" class="reviwes_product_foto">
+                                    <a href="<?php echo get_permalink($review->comment_post_ID);?>#reviews" class="reviwes_product_foto">
                                         <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $review->comment_post_ID ), 'single-post-thumbnail' )[0]; ?>" alt="">
                                     </a>
                                     <span class="author"><?php echo $review->comment_author; ?></span>
                                     <div class="reviwes_product">
                                         О товаре:
-                                        <a href="<?php echo get_permalink($review->comment_post_ID);?>" class="reviwes_product_inner"><?php echo wc_get_product( $review->comment_post_ID )->name;?></a>
+                                        <a href="<?php echo get_permalink($review->comment_post_ID);?>#reviews" class="reviwes_product_inner"><?php echo wc_get_product( $review->comment_post_ID )->name;?></a>
                                     </div>
                                 </div>
                                 <div class="reviwes_text">

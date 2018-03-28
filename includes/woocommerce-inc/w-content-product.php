@@ -28,7 +28,7 @@ add_action( 'woocommerce_shop_loop_item_title', 'mm_loop_product_weight', 15 );
 
 function mm_loop_product_title() {
     global $product;
-	echo '<a href="'.$product->get_permalink().'" class="woocommerce-loop-product__title product_name">' . get_the_title() . '</a>';
+	echo '<a href="'.$product->get_permalink().'" class="woocommerce-loop-product__title product_name">' . $product->name . '</a>';
 
 }
 
