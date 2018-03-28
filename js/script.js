@@ -138,10 +138,9 @@ jQuery(document).ready(function () {
     });
 
     //----------plus/minus buttons
-    jQuery('div.woocommerce').on('click','.counter-minus, .counter-plus', function (e) {
+    jQuery('div.container').on('click','.counter-minus, .counter-plus', function (e) {
         e.preventDefault();
-        if (jQuery("[name='update_cart']").length)
-            jQuery("[name='update_cart']").removeAttr('disabled');
+
         var input = jQuery(this).siblings('.qty');
         var inputval = input.val();
         if (jQuery.isNumeric(inputval) && Math.floor(inputval) == inputval) {
@@ -152,8 +151,11 @@ jQuery(document).ready(function () {
                 if (inputval < input.attr('max') || input.attr('max') === '')
                     input.val(parseInt(inputval) + 1);
             }
-            if (jQuery("[name='update_cart']").length)
+            if (jQuery("[name='update_cart']").length){
+                jQuery("[name='update_cart']").removeAttr('disabled');
                 jQuery("[name='update_cart']").trigger('click');
+            }
+
         }
 
     });

@@ -7,7 +7,7 @@ Theme Name: Wildberry
 
 
 
-.added_to_cart{
+.added_to_cart, .invisible{
     display: none;
 }
 

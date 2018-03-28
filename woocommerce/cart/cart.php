@@ -167,10 +167,15 @@ do_action('woocommerce_before_cart'); ?>
                     <?php do_action('woocommerce_after_cart_table'); ?>
                 </form>
             </div>
-            <div class="basket_button">
-                <?php do_action('woocommerce_proceed_to_checkout'); ?>
-            </div>
-
+            <?php if (!is_page('checkout')): ?>
+                <div class="basket_button">
+                    <?php do_action('woocommerce_proceed_to_checkout'); ?>
+                </div>
+            <?php endif; ?>
+            <?php if (is_page('checkout')): ?>
+                <?php define( 'WOOCOMMERCE_CHECKOUT', true );
+                echo do_shortcode('[woocommerce_checkout]'); ?>
+            <?php endif; ?>
         </div>
 
         <?php
@@ -178,14 +183,14 @@ do_action('woocommerce_before_cart'); ?>
          * Cart collaterals hook.
          *
          * @hooked woocommerce_cross_sell_display unhooked
-         * @hooked woocommerce_cart_totals - 10
+         * @hooked woocommerce_cart_totals - 10 unhooked
          */
         do_action('woocommerce_cart_collaterals');
         ?>
 
     </div>
 
-    <?php mm_show_info_about_free_shipping();?>
+    <?php mm_show_info_about_free_shipping(); ?>
 </div>
 
 <?php do_action('woocommerce_after_cart'); ?>

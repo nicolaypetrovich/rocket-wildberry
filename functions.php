@@ -76,6 +76,13 @@ function searchfilter( $query ) {
 add_filter( 'pre_get_posts', 'searchfilter' );
 
 
+
+function register_my_menu() {
+    register_nav_menu('header-menu',__( 'Header Menu' ));
+}
+add_action( 'init', 'register_my_menu' );
+
+
 include 'includes/mm-customizer.php';
 include 'includes/usefull-func.php';
 

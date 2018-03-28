@@ -81,15 +81,21 @@
 
                     </ul>
                 </div>
+
                 <div class="header_nav">
                     <nav>
-                        <ul class="menu">
-                            <li class="menu_item_1"><a href="">Главная</a></li>
-                            <li class="menu_item_2"><a href="">Рецепты</a></li>
-                            <li class="menu_item_3"><a href="">Оплата и доставка</a></li>
-                            <li class="menu_item_4"><a href="">Контакты</a></li>
-                            <li class="menu_item_5"><a href="">Акции</a></li>
-                        </ul>
+                        <?php
+                        wp_nav_menu(
+                                array( 'theme_location' => 'header-menu',
+                                    'walker'  => new T5_Nav_Menu_Walker_Simple() )
+                        ); ?>
+<!--                        <ul class="menu">-->
+<!--                            <li class="menu_item_1"><a href="">Главная</a></li>-->
+<!--                            <li class="menu_item_2"><a href="">Рецепты</a></li>-->
+<!--                            <li class="menu_item_3"><a href="">Оплата и доставка</a></li>-->
+<!--                            <li class="menu_item_4"><a href="">Контакты</a></li>-->
+<!--                            <li class="menu_item_5"><a href="">Акции</a></li>-->
+<!--                        </ul>-->
                     </nav>
                 </div>
                 <?php mm_show_cart_info();?>
