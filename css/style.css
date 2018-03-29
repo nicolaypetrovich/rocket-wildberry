@@ -1422,7 +1422,7 @@ a[class*="_btn"]{
   .bags{
     display: none;
   }
-  .invalid .bags{display: block;}
+  .invalid-empty .bags{display: block;}
   .form_item{
     margin-bottom: 18px;
   }

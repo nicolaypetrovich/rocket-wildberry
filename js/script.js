@@ -58,13 +58,8 @@ function include(url) {
 
 //------validation form------
 function checkEmail(currInput) {
-    var pattern = /^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\.[a-zA-Z]{2,4}jQuery/;
-    if (!pattern.exec(currInput.val())) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    var pattern = /^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*\.[a-zA-Z]{2,4}$/;
+    return pattern.exec(currInput.val());
 }
 
 function checkName(currInput) {
@@ -78,33 +73,43 @@ function checkName(currInput) {
 }
 
 function checkPhone(currInput) {
-    var pattern = /(\(?\d{3}\)?[\- ]?)?[\d\- ]{4,10}jQuery/;
-    if (!pattern.exec(currInput.val())) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    // var pattern = /(\(?\d{3}\)?[\- ]?)?[\d\- ]{4,10}$/;
+    var pattern;
+    pattern = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+    return pattern.exec(currInput.val());
 }
 
 jQuery('.sendBtn').click(function (e) {
     var errors = false;
     var currentForm = jQuery(this).closest("form.formSend"),
-        name = currentForm.find('input[name="name"]'),
-        phone = currentForm.find('input[name="phone"]'),
-        email = currentForm.find('input[name="email"]');
+        name = currentForm.find('input[name="billing_first_name"]'),
+        phone = currentForm.find('input[name="billing_phone"]'),
+        email = currentForm.find('input[name="billing_email"]'),
+        address = currentForm.find('input[name="billing_address_1"]');
+
 
     if (email.length) {
-        if (!email.val().length || !checkEmail(email)) {
-            email.parent().addClass("invalid");
+        if (email.val()==''||email.val()==null) {
+            email.parent().addClass("invalid-empty");
             errors = true;
+        } else {
+            email.parent().removeClass("invalid-empty");
+        }
+        if (!checkEmail(email)) {
+            email.parent().addClass("invalid");
         }
         else {
             email.parent().removeClass("invalid");
         }
     }
     if (phone.length) {
-        if (!phone.val().length || !checkPhone(phone)) {
+        if (phone.val()==''||phone.val()==null) {
+            phone.parent().addClass("invalid-empty");
+            errors = true;
+        } else {
+            phone.parent().removeClass("invalid-empty");
+        }
+        if (!checkPhone(phone)) {
             phone.parent().addClass("invalid");
             errors = true;
         }
@@ -113,14 +118,28 @@ jQuery('.sendBtn').click(function (e) {
         }
     }
     if (name.length) {
-        if (!name.val().length || name.val() == "Ваше имя") {
+        if (name.val()==''||name.val()==null) {
+            name.parent().addClass("invalid-empty","invalid");
             name.parent().addClass("invalid");
             errors = true;
-        }
-        else {
+        } else {
+            name.parent().removeClass("invalid-empty");
             name.parent().removeClass("invalid");
         }
     }
+
+    if (address.length) {
+        if (address.val()==''||address.val()==null) {
+            address.parent().addClass("invalid-empty");
+            address.parent().addClass("invalid");
+            errors = true;
+        } else {
+            address.parent().removeClass("invalid-empty");
+            address.parent().removeClass("invalid");
+        }
+
+    }
+
     if (errors) {
         e.preventDefault();
     }
@@ -138,7 +157,7 @@ jQuery(document).ready(function () {
     });
 
     //----------plus/minus buttons
-    jQuery('div.container').on('click','.counter-minus, .counter-plus', function (e) {
+    jQuery('div.container').on('click', '.counter-minus, .counter-plus', function (e) {
         e.preventDefault();
 
         var input = jQuery(this).siblings('.qty');
@@ -151,7 +170,7 @@ jQuery(document).ready(function () {
                 if (inputval < input.attr('max') || input.attr('max') === '')
                     input.val(parseInt(inputval) + 1);
             }
-            if (jQuery("[name='update_cart']").length){
+            if (jQuery("[name='update_cart']").length) {
                 jQuery("[name='update_cart']").removeAttr('disabled');
                 jQuery("[name='update_cart']").trigger('click');
             }

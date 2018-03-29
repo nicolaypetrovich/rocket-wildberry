@@ -61,3 +61,7 @@ input[type=number] {
 .recipes_box .alignright{
     float: right;
 }
+.invalid .input-text{
+    /*border: 2px solid black;*/
+    border: 2px solid red;
+}

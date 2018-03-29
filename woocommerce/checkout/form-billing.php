@@ -29,7 +29,7 @@ if (!defined('ABSPATH')) {
 <div class="delivery_top">
     <div class="delivery_type_1 active">
         <div class="delivery_type_left">
-            <input type="radio" name="delivery" id="runner" class="input_radio" checked>
+            <input type="radio" name="delivery" id="runner" value="courier" class="input_radio" checked>
             <label for="runner" class="label_radio"></label>
         </div>
         <h5 class="title5">Доставка курьером</h5>
@@ -39,7 +39,7 @@ if (!defined('ABSPATH')) {
     </div>
     <div class="delivery_type_2">
         <div class="delivery_type_left">
-            <input type="radio" name="delivery" id="pickup" class="input_radio" autocomplete="off">
+            <input type="radio" name="delivery" id="pickup" class="input_radio" autocomplete="off" value="self" >
             <label for="pickup" class="label_radio"></label>
         </div>
         <h5 class="title5">Самовывоз из точки выдачи</h5>
@@ -55,7 +55,8 @@ if (!defined('ABSPATH')) {
     </div>
     <div id="map_box" class="map"></div>
 </div>
-<div class="woocommerce-billing-fields__field-wrapper delivery_data">
+<div >
+<!--<div class="woocommerce-billing-fields__field-wrapper delivery_data">-->
     <?php
     $fields = $checkout->get_checkout_fields('billing');
 
@@ -70,7 +71,7 @@ if (!defined('ABSPATH')) {
         $temp = str_replace(array('/p>'), '/div>', $temp);
         if (strpos($temp, '<input') !== false) {
             $temp = str_replace(array('<input'), '<div class="form_item_type"><input', $temp);
-            $temp = str_replace('</div>', '</div></div>', $temp);
+            $temp = str_replace('</div>', '<span class="bags">поле обязательное для заполнения</span></div></div>', $temp);
         }
         echo $temp;
     }
