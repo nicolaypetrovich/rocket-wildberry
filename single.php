@@ -15,12 +15,13 @@
 				echo '</aside>';
 				?>
                 <div class="catalog_box">
+                    <div class="recipes_box">
 					<?php while ( have_posts() ) : the_post();
 						the_content();
 					endwhile; // End of the loop.
 
 					?>
-
+                    </div>
                         <div class="ingredients_use">
                             <h4 class="title5">Используемые товары</h4>
                             <div class="ingredients">

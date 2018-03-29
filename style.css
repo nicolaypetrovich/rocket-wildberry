@@ -24,3 +24,40 @@ input[type=number]::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance:textfield;
 }
+
+
+
+
+.recipes_box h1{
+    font-size: 30px;
+    line-height: 1.2;
+}
+.recipes_box h2{
+    font-size: 23px;
+    line-height: 1.2;
+}
+.recipes_box h3{
+    font-size: 20px;
+    line-height: 1.2;
+}
+.recipes_box h4{
+    font-size: 18px;
+    line-height: 1.2;
+}
+.recipes_box h5{
+    font-size: 17px;
+    line-height: 1.2;
+}
+.recipes_box p, .recipes_box ul li, .recipes_box ol li{
+    font-size: 18px;
+}
+.recipes_box p, .recipes_box a, .recipes_box ul li, .recipes_box ol li{
+    color: #522a6c;
+}
+.recipes_box .alignleft{
+    float: left;
+}
+
+.recipes_box .alignright{
+    float: right;
+}

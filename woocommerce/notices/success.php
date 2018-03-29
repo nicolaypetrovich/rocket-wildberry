@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! $messages ) {
 	return;
 }
-return;//don't show notices ever
+//return;//don't show notices ever
 ?>
 
 <?php foreach ( $messages as $message ) : ?>

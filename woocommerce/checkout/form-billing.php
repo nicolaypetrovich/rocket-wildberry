@@ -60,6 +60,7 @@ if (!defined('ABSPATH')) {
     $fields = $checkout->get_checkout_fields('billing');
 
     foreach ($fields as $key => $field) {
+
         if (isset($field['country_field'], $fields[$field['country_field']])) {
             $field['country'] = $checkout->get_value($field['country_field']);
         }
@@ -67,11 +68,26 @@ if (!defined('ABSPATH')) {
         $temp = woocommerce_form_field($key, $field, $checkout->get_value($key));
         $temp = str_replace(array('<p'), '<div', $temp);
         $temp = str_replace(array('/p>'), '/div>', $temp);
-//        $temp = str_replace(array('<input'), '<div class="form_item_type"><input', $temp);
-//        $temp = str_replace(array('type="email">','type="tel">','type="text">'), array('type="email"></div>','type="tel"></div>','type="text"></div>'), $temp);
-
+        if (strpos($temp, '<input') !== false) {
+            $temp = str_replace(array('<input'), '<div class="form_item_type"><input', $temp);
+            $temp = str_replace('</div>', '</div></div>', $temp);
+        }
         echo $temp;
     }
+
+    woocommerce_form_field( 'daypart', array(
+        'type'          => 'radio',
+        'class'         => array( 'wps-drop' ),
+        'label'         => __( 'Delivery options' ),
+        'options'       => array(
+            'blank'		=> __( 'Select a day part', 'wps' ),
+            'morning'	=> __( 'In the morning', 'wps' ),
+            'afternoon'	=> __( 'In the afternoon', 'wps' ),
+            'evening' 	=> __( 'In the evening', 'wps' )
+        ),
+        'priority'=>5
+    ),
+        $checkout->get_value( 'daypart' ));
     ?>
     <?php do_action('woocommerce_before_order_notes', $checkout); ?>
 
@@ -81,11 +97,15 @@ if (!defined('ABSPATH')) {
             <?php foreach ($checkout->get_checkout_fields('order') as $key => $field) : ?>
                 <?php
                 $field['return'] = true;
-                $temp =woocommerce_form_field($key, $field, $checkout->get_value($key));
+                $temp = woocommerce_form_field($key, $field, $checkout->get_value($key));
                 $temp = str_replace(array('<p'), '<div', $temp);
                 $temp = str_replace(array('/p>'), '/div>', $temp);
-
-                echo $temp?>
+                if (strpos($temp, '<textarea') !== false) {
+                    $temp = str_replace(array('<textarea'), '<div class="form_item_type"><textarea', $temp);
+//                    $temp = str_replace(array('<input'), '<div class="form_item_type"><input', $temp);
+                    $temp = str_replace('</textarea>', '</textarea></div>', $temp);
+                }
+                echo $temp; ?>
             <?php endforeach; ?>
         </div>
 

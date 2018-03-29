@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! $messages ) {
 	return;
 }
-return;
+//return;
 ?>
 <ul class="woocommerce-error" role="alert">
 	<?php foreach ( $messages as $message ) : ?>

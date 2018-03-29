@@ -15,7 +15,9 @@ function custom_order_fields($fields) {
     unset($fields['billing']['billing_postcode']);
     unset($fields['billing']['billing_city']);
 //    unset($fields['shipping']);
-
+var_dump($fields);
+    $fields['billing']['billing_custom']['priority']=2;
+    $fields['billing']['billing_custom']['type']='radio';
 
     $fields['billing']['billing_phone']['priority']=10;
     $fields['billing']['billing_phone']['class'][]='form_item';
@@ -45,6 +47,25 @@ function custom_order_fields($fields) {
 }
 
 remove_action('woocommerce_checkout_order_review', 'woocommerce_order_review', 10);
+
+
+
+
+add_action('woocommerce_checkout_process', 'wps_select_checkout_field_process');
+function wps_select_checkout_field_process() {
+    global $woocommerce;
+    // Check if set, if its not set add an error.
+    if ($_POST['daypart'] == "blank")
+        wc_add_notice( '<strong>Please select a day part under Delivery options</strong>', 'error' );
+}
+add_action('woocommerce_checkout_update_order_meta', 'wps_select_checkout_field_update_order_meta');
+function wps_select_checkout_field_update_order_meta( $order_id ) {
+    var_dump($_POST);
+    wp_die();
+    if ($_POST['daypart']) update_post_meta( $order_id, 'daypart', esc_attr($_POST['daypart']));
+}
+
+
 
 //array(4) { ["billing"]=> array(11) {
 // ["billing_first_name"]=> array(6) {
