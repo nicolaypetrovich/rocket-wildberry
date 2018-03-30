@@ -89,7 +89,7 @@ jQuery('.sendBtn').click(function (e) {
 
 
     if (email.length) {
-        if (email.val()==''||email.val()==null) {
+        if (email.val() == '' || email.val() == null) {
             email.parent().addClass("invalid-empty");
             errors = true;
         } else {
@@ -103,7 +103,7 @@ jQuery('.sendBtn').click(function (e) {
         }
     }
     if (phone.length) {
-        if (phone.val()==''||phone.val()==null) {
+        if (phone.val() == '' || phone.val() == null) {
             phone.parent().addClass("invalid-empty");
             errors = true;
         } else {
@@ -118,8 +118,8 @@ jQuery('.sendBtn').click(function (e) {
         }
     }
     if (name.length) {
-        if (name.val()==''||name.val()==null) {
-            name.parent().addClass("invalid-empty","invalid");
+        if (name.val() == '' || name.val() == null) {
+            name.parent().addClass("invalid-empty", "invalid");
             name.parent().addClass("invalid");
             errors = true;
         } else {
@@ -129,7 +129,7 @@ jQuery('.sendBtn').click(function (e) {
     }
 
     if (address.length) {
-        if (address.val()==''||address.val()==null) {
+        if (address.val() == '' || address.val() == null) {
             address.parent().addClass("invalid-empty");
             address.parent().addClass("invalid");
             errors = true;
@@ -198,6 +198,9 @@ jQuery(document).ready(function () {
                 currentmodal.find('.modal_order_img').html(productdiv.find('.product_vew_img').html().clone().attr('width', 158).attr('height', 158));
             currentmodal.find('.modal_order_name').html(productdiv.find('.product_name').clone().html());
             currentmodal.find('.modal_order_price').html(productdiv.find('.product_price').clone().html());
+            currentmodal.find('.modal_order_select').html(productdiv.find('.product_packing').clone().html());
+
+
             currentmodal.addClass('active');
 
         } else {
@@ -238,7 +241,9 @@ jQuery(document).ready(function () {
 
         event.stopPropagation()
 
-    })
+    });
+
+
 //-------input radio checked-----
     jQuery('.input_radio').on("click", function () {
         if (jQuery('.input_radio:checked')) {
@@ -259,14 +264,60 @@ jQuery(document).ready(function () {
         }
     });
 //---------------input type file-------------------
-    if (jQuery('#file').length) {
-        var inp = jQuery('#file');
+    if (jQuery('#wild_file').length) {
+        var inp = jQuery('#wild_file');
         inp.change(function () {
             var file_name = inp.val().replace("C:\\fakepath\\", '');
             jQuery('.file_text').text(file_name);
         }).change();
     }
-//--owl-carousel--------------------  
+
+    jQuery(document).on('change', '#wild_file', function () {
+        var file = document.getElementById('wild_file').files[0];
+        var file_data = jQuery('#wild_file').prop('files')[0];
+
+        var form_data = new FormData();
+        form_data.append('wild_file', file_data);
+        form_data.append('action', 'mm_upload_file_checkout');
+        jQuery.ajax({
+            url: mm_ajax_object.ajax_url,
+            type: 'post',
+            contentType: false,
+            processData: false,
+            data: form_data,
+            success: function (response) {
+                alert(response);
+                // jQuery('.Success-div').html("Form Submit Successfully")
+            },
+            error: function (response) {
+                console.log('error'+response);
+            }
+
+        });
+        alert('firtst');
+    });
+
+
+    // jQuery.post(
+    //     my_ajax_object.ajax_url,
+    //     {
+    //         'action': 'add_package_cart',
+    //         'checked': this.checked
+    //     },
+    //     function (response) {
+    //
+    //         var upd2= jQuery("[name='update_cart']");
+    //
+    //         upd2.removeAttr('disabled');
+    //
+    //         upd2[0].click();
+    //
+    //         jQuery( document.body ).trigger( 'update_checkout' );
+    //     }
+    // );
+
+
+//--owl-carousel--------------------
     if (jQuery('.owl-carousel').length) {
         jQuery(".owl-carousel").each(function () {
             var jQuerythis = jQuery(this);

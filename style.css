@@ -61,7 +61,21 @@ input[type=number] {
 .recipes_box .alignright{
     float: right;
 }
+
+.recipes_box .alignright{
+    float: right;
+}
+
+.recipes_box ul{
+    list-style: initial;
+}
+.recipes_box ol{
+    list-style-type: decimal;
+}
+
 .invalid .input-text{
     /*border: 2px solid black;*/
     border: 2px solid red;
 }
+
+

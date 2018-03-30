@@ -23,32 +23,6 @@ if (!defined('ABSPATH')) {
 ?>
 
 <?php if (true === WC()->cart->needs_shipping_address()) : ?>
-    <div class="payment_company_box">
-        <div class="form_item">
-            <label class="payment_company_label">Название компании:</label>
-            <div class="form_item_type">
-                <span class="payment_company_message">Пожалуйста, заполните реквизиты (необязательно). Затем, в течение ближайшего времени Вам перезвонит менеджер для подтверждения заказа и пришлет счет на оплату в банке</span>
-                <input class="form_item_input" name="name" placeholder="Введите название, ЕГРПОУ, адрес или ОКПО" onblur="if(this.placeholder=='') this.placeholder='Введите название, ЕГРПОУ, адрес или ОКПО'" onfocus="if(this.placeholder =='Введите название, ЕГРПОУ, адрес или ОКПО' ) this.placeholder=''" type="email">
-                <span class="bags">поле обязательное для заполнения</span>
-                <span class="payment_company_text">Введите название компании или загрузите файл с реквизитами</span>
-                <label for="file" class="label_file">
-                    <span class="file_btn">Прикрепить файл</span>
-                    <span class="file_text"></span>
-                    <input name="file" id="file" type="file">
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="delivery_data">
-        <div class="form_item">
-            <label>В какое время вам лучше позвонить?</label>
-            <div class="form_item_type">
-                <input class="form_item_input" name="name" placeholder="c 9:00 до 18:00" onblur="if(this.placeholder=='') this.placeholder='c 9:00 до 18:00'" onfocus="if(this.placeholder =='c 9:00 до 18:00' ) this.placeholder=''" type="text">
-            </div>
-
-        </div>
-    </div>
-    <button class="purple_btn sendBtn">Оформить заказ</button>
     <h3 id="ship-to-different-address">
         <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
             <input id="ship-to-different-address-checkbox"
@@ -82,44 +56,3 @@ if (!defined('ABSPATH')) {
 <?php endif; ?>
 
 
-<div class="payment_company_box">
-    <div class="form_item">
-        <label class="payment_company_label">Название компании:</label>
-        <div class="form_item_type">
-            <span class="payment_company_message">Пожалуйста, заполните реквизиты (необязательно). Затем, в течение ближайшего времени Вам перезвонит менеджер для подтверждения заказа и пришлет счет на оплату в банке</span>
-            <input class="form_item_input" name="name" placeholder="Введите название, ЕГРПОУ, адрес или ОКПО" onblur="if(this.placeholder=='') this.placeholder='Введите название, ЕГРПОУ, адрес или ОКПО'" onfocus="if(this.placeholder =='Введите название, ЕГРПОУ, адрес или ОКПО' ) this.placeholder=''" type="email">
-            <span class="bags">поле обязательное для заполнения</span>
-            <span class="payment_company_text">Введите название компании или загрузите файл с реквизитами</span>
-            <label for="file" class="label_file">
-                <span class="file_btn">Прикрепить файл</span>
-                <span class="file_text"></span>
-                <input name="file" id="file" type="file">
-            </label>
-        </div>
-    </div>
-</div>
-<div class="delivery_data">
-    <div class="form_item">
-        <label>В какое время вам лучше позвонить?</label>
-        <div class="form_item_type">
-            <input class="form_item_input" name="name" placeholder="c 9:00 до 18:00" onblur="if(this.placeholder=='') this.placeholder='c 9:00 до 18:00'" onfocus="if(this.placeholder =='c 9:00 до 18:00' ) this.placeholder=''" type="text">
-        </div>
-
-    </div>
-</div>
-<div class="form-row place-order">
-    <noscript>
-        <?php esc_html_e( 'Since your browser does not support JavaScript, or it is disabled, please ensure you click the <em>Update Totals</em> button before placing your order. You may be charged more than the amount stated above if you fail to do so.', 'woocommerce' ); ?>
-        <br/><button type="submit" class="button alt purple_btn sendBtn" name="woocommerce_checkout_update_totals" value="<?php esc_attr_e( 'Update totals', 'woocommerce' ); ?>"><?php esc_html_e( 'Update totals', 'woocommerce' ); ?></button>
-    </noscript>
-
-    <?php wc_get_template( 'checkout/terms.php' ); ?>
-
-    <?php do_action( 'woocommerce_review_order_before_submit' ); ?>
-
-    <?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt purple_btn sendBtn" name="woocommerce_checkout_place_order" id="place_order" value="' . 'Оформить заказ' . '" data-value="' . 'Оформить заказ' . '">' .  'Оформить заказ' . '</button>' ); // @codingStandardsIgnoreLine ?>
-
-    <?php do_action( 'woocommerce_review_order_after_submit' ); ?>
-
-    <?php wp_nonce_field( 'woocommerce-process_checkout' ); ?>
-</div>

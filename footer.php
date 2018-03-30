@@ -130,23 +130,10 @@
         <div class="modal_box_type">
             <div class="modal_box_top">
                 <div class="modal_order_img">
-                    <img src="images/product_big1.png" alt="">
+
                 </div>
                 <div class="modal_order_name">Ананас замороженный</div>
                 <div class="modal_order_select">
-                    <div class="custom_select main_select">
-                        <div class="active_option open_select undefined">0,5 кг</div>
-                        <ul class="options dropdown">
-                            <li><a href="#" data-value="0,5 кг">0,5 кг</a></li>
-                            <li><a href="#" data-value="1 кг">1 кг</a></li>
-                            <li><a href="#" data-value="1,5 кг">1,5 кг</a></li>
-                        </ul>
-                        <select style="display: none;">
-                            <option>0,5 кг</option>
-                            <option>1 кг</option>
-                            <option>1,5 кг</option>
-                        </select>
-                    </div>
                 </div>
             </div>
             <div class="modal_box_bottom">

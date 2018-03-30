@@ -32,6 +32,9 @@ function mm_scripts_method() {
 
 	wp_register_script( 'customscript', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '20180130', true );
 	wp_enqueue_script( 'customscript' );
+    wp_localize_script( 'customscript', 'mm_ajax_object',
+        array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'mm_scripts_method', 11 );

@@ -15,6 +15,12 @@
 				echo '</aside>';
 				?>
                 <div class="catalog_box">
+                    <div class="recipies_box_title">
+                        <h1 class="title2 pecipe_name"><?php the_title();?></h1>
+                        <div class="recipe_time">
+                            <time datetime="<?php the_date();?>"><?php the_date();?></time>
+                        </div>
+                    </div>
                     <div class="recipes_box">
 					<?php while ( have_posts() ) : the_post();
 						the_content();
