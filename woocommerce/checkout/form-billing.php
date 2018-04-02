@@ -34,8 +34,7 @@ if (!defined('ABSPATH')) {
             <label for="runner" class="label_radio"></label>
         </div>
         <h5 class="title5">Доставка курьером</h5>
-        <div class="delivery_type_text">Заказы от 300 гривен -курьером в Николаеве
-            бесплатно, в регионы доставляем транспортными компаниями"
+        <div class="delivery_type_text"><?php echo get_theme_mod('wildberry_theme_checkout_desc1');?>
         </div>
     </div>
     <div class="delivery_type_2">
@@ -44,8 +43,7 @@ if (!defined('ABSPATH')) {
             <label for="pickup" class="label_radio"></label>
         </div>
         <h5 class="title5">Самовывоз из точки выдачи</h5>
-        <div class="delivery_type_text">Из нашего офиса по адресу ул. Аляудская д.1 стр.3,4
-            этаж офис. 34-19, в любой деньс 10:00 до 18:00, кроме воскресенья.
+        <div class="delivery_type_text"><?php echo get_theme_mod('wildberry_theme_checkout_desc2');?>
         </div>
     </div>
 </div>

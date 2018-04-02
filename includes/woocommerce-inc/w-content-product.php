@@ -11,7 +11,10 @@ function mm_loop_product_review_box() {
     <div class="product_reviews_box">
 		<?php if ( ! empty( $product->get_average_rating() ) ): ?>
             <div class="raty staticStar" data-star="<?php echo $product->get_average_rating(); ?>"></div>
-		<?php endif; ?>
+        <?php else:?>
+            <div class="raty staticStar" data-star="0"></div>
+        <?php endif; ?>
+
         <div class="product_reviews">
             <span><?php echo $product->get_review_count(); ?></span>
             <a href="<?php echo $product->get_permalink(); ?>#reviews"
