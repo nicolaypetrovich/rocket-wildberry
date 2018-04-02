@@ -2,6 +2,15 @@
 
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
+add_filter('woocommerce_currency_symbol', 'change_existing_currency_symbol', 10, 2);
+
+function change_existing_currency_symbol( $currency_symbol, $currency ) {
+	switch( $currency ) {
+		case 'UAH': $currency_symbol = ' грн'; break;
+	}
+	return $currency_symbol;
+}
+
 add_filter('woocommerce_breadcrumb_defaults', 'mm_box_change_breadcrumb_delimiter');
 function mm_box_change_breadcrumb_delimiter($defaults)
 {
@@ -121,6 +130,31 @@ function cart_update_qty_script()
         </script>
     <?php
     endif;
+}
+
+add_filter( 'woocommerce_get_catalog_ordering_args', 'custom_woocommerce_get_catalog_ordering_args' );
+
+function custom_woocommerce_get_catalog_ordering_args( $args ) {
+	$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) : apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
+
+	if ( 'alphabetical' == $orderby_value ) {
+		$args['orderby'] = 'title';
+		$args['order'] = 'ASC';
+	}
+
+	return $args;
+}
+
+add_filter( 'woocommerce_catalog_orderby', 'custom_woocommerce_catalog_orderby' );
+function custom_woocommerce_catalog_orderby( $sortby ) {
+
+    unset($sortby['popularity']);
+    unset($sortby['rating']);
+    unset($sortby['price-desc']);
+	$sortby['date'] = 'По умолчанию';
+	$sortby['price'] = 'По цене';
+	$sortby['alphabetical'] = 'По названию';
+	return $sortby;
 }
 
 

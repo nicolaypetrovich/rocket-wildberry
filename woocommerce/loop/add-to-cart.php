@@ -31,5 +31,5 @@ echo apply_filters( 'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
 		esc_html( $product->add_to_cart_text() )
 	),
 $product, $args );
-echo '<button class="product_call_btn"></button>';
+echo '<button class="product_call_btn modal_btn" data-modal="phone_call" ></button>';
 echo '</div>';

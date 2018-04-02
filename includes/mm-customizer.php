@@ -52,69 +52,46 @@ function prefix_customize_register( $wp_customize ) {
 			'section' => 'title_tagline',
 		) );
 
+
+
+	$wp_customize->add_section( 'wildberry_footer_contacts', array(
+		'title'    => 'Футер. Контакты.',
+		'priority' => 36,
+
+	) );
 	$wp_customize->add_setting( 'wildberry_theme_email_footer' );
 	$wp_customize->add_control( 'wildberry_theme_email_footer',
 		array(
 			'label'   => 'Email',
 			'type'    => 'text',
-			'section' => 'title_tagline',
+			'section' => 'wildberry_footer_contacts',
 		) );
+	for($i=1;$i<=3;$i++){
+		$wp_customize->add_setting( 'wildberry_theme_city'.$i.'_footer' );
+		$wp_customize->add_control( 'wildberry_theme_city'.$i.'_footer',
+			array(
+				'label'   => 'Город'.$i,
+				'type'    => 'text',
+				'section' => 'wildberry_footer_contacts',
+			) );
 
-	$wp_customize->add_setting( 'wildberry_theme_city1_footer' );
-	$wp_customize->add_control( 'wildberry_theme_city1_footer',
-		array(
-			'label'   => 'Город1',
-			'type'    => 'text',
-			'section' => 'title_tagline',
-		) );
+		$wp_customize->add_setting( 'wildberry_theme_city'.$i.'_footer_phone' );
+		$wp_customize->add_control( 'wildberry_theme_city'.$i.'_footer_phone',
+			array(
+				'label'   => 'Телефон для города'.$i,
+				'type'    => 'text',
+				'section' => 'wildberry_footer_contacts',
+			) );
+	}
 
-	$wp_customize->add_setting( 'wildberry_theme_city1_footer_phone' );
-	$wp_customize->add_control( 'wildberry_theme_city1_footer_phone',
-		array(
-			'label'   => 'Телефон для города1',
-			'type'    => 'text',
-			'section' => 'title_tagline',
-		) );
 
-	$wp_customize->add_setting( 'wildberry_theme_city2_footer' );
-	$wp_customize->add_control( 'wildberry_theme_city2_footer',
-		array(
-			'label'   => 'Город2',
-			'type'    => 'text',
-			'section' => 'title_tagline',
-		) );
 
-	$wp_customize->add_setting( 'wildberry_theme_city2_footer_phone' );
-	$wp_customize->add_control( 'wildberry_theme_city2_footer_phone',
-		array(
-			'label'   => 'Телефон для города2',
-			'type'    => 'text',
-			'section' => 'title_tagline',
-		) );
-
-	$wp_customize->add_setting( 'wildberry_theme_city3_footer' );
-	$wp_customize->add_control( 'wildberry_theme_city3_footer',
-		array(
-			'label'   => 'Город3',
-			'type'    => 'text',
-			'section' => 'title_tagline',
-		) );
-
-	$wp_customize->add_setting( 'wildberry_theme_city3_footer_phone' );
-	$wp_customize->add_control( 'wildberry_theme_city3_footer_phone',
-		array(
-			'label'   => 'Телефон для города3',
-			'type'    => 'text',
-			'section' => 'title_tagline',
-		) );
 
 
 	$wp_customize->add_section( 'wildberry_front_page_sliders', array(
 		'title'    => 'Главная страница. Слайдер',
 		'priority' => 30
 	) );
-
-
 
 
 	for ( $i = 1; $i < 6; $i ++ ) {
@@ -205,20 +182,51 @@ function prefix_customize_register( $wp_customize ) {
 				'section' => 'wildberry_front_page_featured',
 			) );
 	}
+	$wp_customize->add_panel( 'wildberry_popups', array(
+		'priority'       => 10,
+		'capability'     => 'edit_theme_options',
+		'theme_supports' => '',
+		'title'          => 'Модальные окна',
+		'description'    => '',
+	) );
+	$wp_customize->add_section( 'wildberry_popup1', array(
+		'title'    => 'Модальное окно 1. Способы доставки.',
+		'priority' => 32,
+		'panel'=>'wildberry_popups'
+	) );
 
-    $wp_customize->add_section( 'wildberry_header_catalogs', array(
-        'title'    => 'Хедер. Каталог товаров.',
-        'priority' => 32
-    ) );
+	for ( $i = 1; $i <= 4; $i ++ ) {
+		$wp_customize->add_setting( 'wildberry_theme_popup1_name'.$i );
+		$wp_customize->add_control( 'wildberry_theme_popup1_name'.$i,
+			array(
+				'label'   => 'Название'.$i,
+				'type'    => 'text',
+				'section' => 'wildberry_popup1',
+			) );
 
+		$wp_customize->add_setting( 'wildberry_theme_popup1_desc'.$i );
+		$wp_customize->add_control( 'wildberry_theme_popup1_desc'.$i,
+			array(
+				'label'   => 'Описание'.$i,
+				'type'    => 'text',
+				'section' => 'wildberry_popup1',
+			) );
+	}
 
-    $wp_customize->add_setting( 'wildberry_theme_catalogs' );
-    $wp_customize->add_control( 'wildberry_theme_catalogs',
-        array(
-            'label'   => 'Телефон для города3',
-            'type'    => 'text',
-            'section' => 'wildberry_header_catalogs',
-        ) );
+	$wp_customize->add_section( 'wildberry_popup2', array(
+		'title'    => 'Модальное окно 2. Способы оплаты.',
+		'priority' => 32,
+		'panel'=>'wildberry_popups'
+	) );
+	for($i=1;$i<=2;$i++){
+		$wp_customize->add_setting( 'wildberry_theme_popup2_desc'.$i );
+		$wp_customize->add_control( 'wildberry_theme_popup2_desc'.$i,
+			array(
+				'label'   => 'Текст'.$i,
+				'type'    => 'text',
+				'section' => 'wildberry_popup2',
+			) );
+	}
 
 }
 

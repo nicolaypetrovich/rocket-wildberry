@@ -21,7 +21,7 @@
                     </div>
                     <?php while (have_posts()) : the_post();
 
-                        echo '<div class="recipes_bos">';
+                        echo '<div class="recipes_box">';
                         the_content();
                         echo '</div>';
                     endwhile; // End of the loop.

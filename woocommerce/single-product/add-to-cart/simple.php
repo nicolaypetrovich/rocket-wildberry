@@ -66,7 +66,7 @@ if ($product->is_in_stock()) : ?>
         <div class="product_data_flex">
             <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>"
                     class="single_add_to_cart_button button alt purple_btn">Оформить заказ</button>
-            <button class="purple_call_btn"></button>
+            <button class="purple_call_btn modal_btn" data-modal="phone_call"></button>
         </div>
         <div class="product_data_flex">
             <div class="product_data_del modal_btn" data-modal="delivery">Способы доставки</div>

@@ -27,10 +27,11 @@ if ( ! empty( $breadcrumb ) ) {
 
 	foreach ( $breadcrumb as $key => $crumb ) {
 
+
 		echo $before;
 
 		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
-			echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
+			echo '<a '.(get_site_url()===$crumb[1]?'class="breadcrumbs_main"':'').' href="' . esc_url( $crumb[1] ) . '">' .(get_site_url()!==$crumb[1]?esc_html( $crumb[0] ):'')  . '</a>';
 		} else {
 			echo esc_html( $crumb[0] );
 		}

@@ -30,7 +30,7 @@ if (!defined('ABSPATH')) {
 <div class="delivery_top">
     <div class="delivery_type_1 active">
         <div class="delivery_type_left">
-            <input type="radio" name="delivery" id="runner" value="courier" class="input_radio" autocomplete="off" checked>
+            <input type="radio" name="wild_delivery" id="runner" value="courier" class="input_radio" autocomplete="off" checked>
             <label for="runner" class="label_radio"></label>
         </div>
         <h5 class="title5">Доставка курьером</h5>
@@ -40,7 +40,7 @@ if (!defined('ABSPATH')) {
     </div>
     <div class="delivery_type_2">
         <div class="delivery_type_left">
-            <input type="radio" name="delivery" id="pickup" class="input_radio" value="self" autocomplete="off" >
+            <input type="radio" name="wild_delivery" id="pickup" class="input_radio" value="self" autocomplete="off" >
             <label for="pickup" class="label_radio"></label>
         </div>
         <h5 class="title5">Самовывоз из точки выдачи</h5>
@@ -63,7 +63,7 @@ if (!defined('ABSPATH')) {
 <!--<div class="woocommerce-billing-fields__field-wrapper delivery_data">-->
     <?php
     $fields = $checkout->get_checkout_fields('billing');
-
+    //maybe DOMDocument::loadHTML will make things easier?
     foreach ($fields as $key => $field) {
 
         if (isset($field['country_field'], $fields[$field['country_field']])) {

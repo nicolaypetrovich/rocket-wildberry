@@ -83,7 +83,7 @@ jQuery('.sendBtn').click(function (e) {
     var errors = false;
     var currentForm = jQuery(this).closest("form.formSend"),
         name = currentForm.find('input[name="billing_first_name"]'),
-        phone = currentForm.find('input[name="billing_phone"]'),
+        phone = currentForm.find('input[name="billing_phone"], input[name="wild_request_phone"]'),
         email = currentForm.find('input[name="billing_email"]'),
         address = currentForm.find('input[name="billing_address_1"]');
 
@@ -181,17 +181,15 @@ jQuery(document).ready(function () {
 
 
     //--------------modal window------
-    jQuery(".modal_btn").on("click", function () {
+    jQuery(".modal_btn").on("click", function (e) {
         var template = "<div class='modal_container'></div>";
         var height = jQuery(window).height();
         var modal = jQuery(this).data('modal');
         console.log(height);
         jQuery(template).prependTo('body');
+        var productdiv = jQuery(this).closest('div.product_item');
+        var currentmodal = jQuery('#' + modal);
         if ('order' === modal) {
-            var productdiv = jQuery(this).closest('div.product_item');
-            var currentmodal = jQuery('#' + modal);
-
-            currentmodal.prependTo('.modal_container');
             if (productdiv.find('.attachment-woocommerce_thumbnail').length)
                 currentmodal.find('.modal_order_img').html(productdiv.find('.attachment-woocommerce_thumbnail').clone().attr('width', 158).attr('height', 158));
             else if (productdiv.find('.product_vew_img').length)
@@ -200,12 +198,21 @@ jQuery(document).ready(function () {
             currentmodal.find('.modal_order_price').html(productdiv.find('.product_price').clone().html());
             currentmodal.find('.modal_order_select').html(productdiv.find('.product_packing').clone().html());
 
-
-            currentmodal.addClass('active');
-
-        } else {
-            jQuery('#' + modal).prependTo('.modal_container').addClass('active');
         }
+        if ('phone_call' === modal) {
+            e.preventDefault();
+            var add_to_cart_aj = jQuery(this).siblings('a.add_to_cart_button');
+            var single_add_to_cart = jQuery(this).siblings('button.single_add_to_cart_button');
+            if (add_to_cart_aj.length) {
+                currentmodal.find('input[name="prod_id"]').val(add_to_cart_aj.attr("data-product_id"));
+            }
+            if (single_add_to_cart.length) {
+                currentmodal.find('input[name="prod_id"]').val(single_add_to_cart.val());
+            }
+
+        }
+        currentmodal.prependTo('.modal_container').addClass('active');
+
 
         jQuery('.modal_container').css('height', height);
         jQuery("body").addClass("show_modal");
@@ -273,12 +280,14 @@ jQuery(document).ready(function () {
     }
 
     jQuery(document).on('change', '#wild_file', function () {
-        var file = document.getElementById('wild_file').files[0];
+        // var file = document.getElementById('wild_file').files[0];
         var file_data = jQuery('#wild_file').prop('files')[0];
-
+        var nonce = jQuery('input[name=security]').val();
         var form_data = new FormData();
         form_data.append('wild_file', file_data);
         form_data.append('action', 'mm_upload_file_checkout');
+        form_data.append('nonce', nonce);
+
         jQuery.ajax({
             url: mm_ajax_object.ajax_url,
             type: 'post',
@@ -286,17 +295,36 @@ jQuery(document).ready(function () {
             processData: false,
             data: form_data,
             success: function (response) {
-                alert(response);
+                if (response === 'Размер файла слишком большой')
+                    alert('Размер файла слишком большой');
+                else
+                    jQuery('input[name=wild_file_url]').val(response);
                 // jQuery('.Success-div').html("Form Submit Successfully")
             },
             error: function (response) {
-                console.log('error'+response);
+                console.log('error' + response);
             }
 
         });
-        alert('firtst');
     });
 
+    jQuery('#wild_request_call').on('click', function (e) {
+        e.preventDefault();
+        var form = jQuery(this).closest('form.formSend');
+        var formSer=form.serialize();
+        jQuery.ajax({
+            url: mm_ajax_object.ajax_url,
+            type: 'post',
+            data: formSer,
+            success: function (response) {
+                jQuery('#wild_request_call').html(response);
+            },
+            error: function (response) {
+                console.log('error' + response);
+            }
+
+        });
+    });
 
     // jQuery.post(
     //     my_ajax_object.ajax_url,

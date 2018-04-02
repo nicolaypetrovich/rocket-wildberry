@@ -34,6 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <dt>Товары:</dt>
             <dd><?php echo WC()->cart->get_cart_contents_count() ?> шт.</dd>
         </div>
+        <div class="invisible">
 		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
 
 			<?php do_action( 'woocommerce_cart_totals_before_shipping' ); ?>
@@ -42,6 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<?php do_action( 'woocommerce_cart_totals_after_shipping' ); ?>
 		<?php endif; ?>
+        </div>
     </dl>
     <div class="check_bottom"><?php wc_cart_totals_order_total_html(); ?></div>
 

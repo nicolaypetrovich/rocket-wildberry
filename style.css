@@ -49,7 +49,15 @@ input[type=number] {
     line-height: 1.2;
 }
 .recipes_box p, .recipes_box ul li, .recipes_box ol li{
-    font-size: 18px;
+
+    font-size: 17px;
+    font-family: 'Proxima Nova Rg';
+    font-weight: 400;
+}
+
+.recipes_box p{
+    margin-bottom: 8px;
+
 }
 .recipes_box p, .recipes_box a, .recipes_box ul li, .recipes_box ol li{
     color: #522a6c;
@@ -72,10 +80,32 @@ input[type=number] {
 .recipes_box ol{
     list-style-type: decimal;
 }
+.recipes_box li{
+    margin-left: 20px;
+}
+.recipes_box img{
+    border: 2px solid #522a6c;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+li.active a{
+    color: white;
+}
 
 .invalid .input-text{
     /*border: 2px solid black;*/
     border: 2px solid red;
 }
 
+.woocommerce-ordering a{
+    color: #cf003e;
+}
 
+.request_call_form{
+    text-align: center;
+}
+.request_call_form .purple_btn {
+    margin-top: 10px;
+    width: 100%;
+}
