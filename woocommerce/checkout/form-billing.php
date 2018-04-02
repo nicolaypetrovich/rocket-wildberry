@@ -34,8 +34,7 @@ if (!defined('ABSPATH')) {
             <label for="runner" class="label_radio"></label>
         </div>
         <h5 class="title5">Доставка курьером</h5>
-        <div class="delivery_type_text">Заказы от 300 гривен -курьером в Николаеве
-            бесплатно, в регионы доставляем транспортными компаниями"
+        <div class="delivery_type_text"><?php echo get_theme_mod('wildberry_theme_checkout_desc1');?>
         </div>
     </div>
     <div class="delivery_type_2">
@@ -44,8 +43,7 @@ if (!defined('ABSPATH')) {
             <label for="pickup" class="label_radio"></label>
         </div>
         <h5 class="title5">Самовывоз из точки выдачи</h5>
-        <div class="delivery_type_text">Из нашего офиса по адресу ул. Аляудская д.1 стр.3,4
-            этаж офис. 34-19, в любой деньс 10:00 до 18:00, кроме воскресенья.
+        <div class="delivery_type_text"><?php echo get_theme_mod('wildberry_theme_checkout_desc2');?>
         </div>
     </div>
 </div>
@@ -56,7 +54,7 @@ if (!defined('ABSPATH')) {
     </div>
 
     <div id="map_box" class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5446.1654196474265!2d32.03421323896658!3d46.96006492912926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c5cbb6480f85f7%3A0x51d847ae0b03ab7c!2sMikolay+Leontovich+Square%2C+Mykolaiv%2C+Mykolaivs&#39;ka+oblast%2C+54000!5e0!3m2!1sen!2sua!4v1522405716282" width="720" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+	    <?php echo get_theme_mod('wildberry_theme_checkout_map');?>
     </div>
 </div>
 <div class="delivery_data">

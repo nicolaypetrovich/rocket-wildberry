@@ -31,6 +31,8 @@ global $product;
 
         <?php if (!empty($product->get_average_rating())) : ?>
             <div class="raty staticStar" data-star="<?php echo $product->get_average_rating(); ?>"></div>
+        <?php else:?>
+            <div class="raty staticStar" data-star="0"></div>
         <?php endif; ?>
         <span class="aside_product_img">
         <?php echo $product->get_image(); ?>
