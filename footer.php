@@ -161,21 +161,26 @@
         <div class="modal_box">
             <form class="formSend request_call_form">
                 <div class="form_item">
-                    <label for="phone_modal_input"> Номер телефона: </label>
+                    <label for="name_modal_input" class="modal_input_label" >Имя: </label>
+                    <div class="for_item_type">
+                        <input class="form_item_input input-text" name="wild_request_phone_name" type="text" id="name_modal_input"
+                               placeholder="Александр">
+                        <span class="bags">Поле должно быть заполнено.</span>
+                    </div>
+                    <label for="phone_modal_input" class="modal_input_label"> Номер телефона: </label>
                     <div class="for_item_type">
                         <input class="form_item_input input-text" name="wild_request_phone" type="tel" id="phone_modal_input"
                                placeholder="+38 (096) 504 32 74">
                         <input class="invisible" name="prod_id" type="number" value="0">
-                        <input class="invisible" name="action" type="text" value="mm_create_phone_request">
-                        <input class="invisible" name="security" id="security" autocomplete="off"
-                               type="hidden" value="<?php echo $temp = wp_create_nonce( 'ajax_phone_nonce' ); ?>">
                         <span class="bags">Поле должно быть заполнено.</span>
                     </div>
-
                 </div>
 
                 <button id="wild_request_call" class="purple_btn sendBtn" type="submit" >Заказать</button>
 
+                <input class="invisible" name="action" type="text" value="mm_create_phone_request">
+                <input class="invisible" name="security" id="security" autocomplete="off"
+                       type="hidden" value="<?php echo $temp = wp_create_nonce( 'ajax_phone_nonce' ); ?>">
             </form>
 
         </div>

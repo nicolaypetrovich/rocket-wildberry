@@ -153,10 +153,18 @@ function mm_calls_metabox_cb($post)
 {
 
 
+
+
+    if (!empty(get_post_meta($post->ID, 'wild_request_phone_name'))) {
+        $name = get_post_meta($post->ID, 'wild_request_phone_name', true);
+
+        echo 'Имя пользователя запросившего запрос: ' . $name;
+        echo '</br>';
+    }
     if (!empty(get_post_meta($post->ID, 'wild_request_phone'))) {
         $phone = get_post_meta($post->ID, 'wild_request_phone', true);
 
-        echo 'Пользователь запросил звонок по телефону ' . $phone;
+        echo 'Пользователь запросил звонок по телефону: ' . $phone;
         echo '</br>';
     }
 
@@ -195,6 +203,9 @@ function mm_create_phone_request()
     }
     if (isset($_POST['wild_request_phone']) && !empty($_POST['wild_request_phone'])) {
         update_post_meta($new_post_id, 'wild_request_phone', $_POST['wild_request_phone']);
+    }
+    if (isset($_POST['wild_request_phone_name']) && !empty($_POST['wild_request_phone_name'])) {
+        update_post_meta($new_post_id, 'wild_request_phone_name', $_POST['wild_request_phone_name']);
     }
     wp_die('Запрос отправлен.');
 

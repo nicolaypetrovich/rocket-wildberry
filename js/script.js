@@ -307,7 +307,8 @@ jQuery(document).ready(function () {
         e.preventDefault();
         var errors = false;
         var currentForm = jQuery(this).closest("form.formSend"),
-            phone = currentForm.find('input[name="wild_request_phone"]');
+            phone = currentForm.find('input[name="wild_request_phone"]'),
+            name = currentForm.find('input[name="wild_request_phone_name"]');
 
         if (phone.length) {
             if (phone.val() == '' || phone.val() == null) {
@@ -322,6 +323,15 @@ jQuery(document).ready(function () {
             }
             else {
                 phone.parent().removeClass("invalid");
+            }
+        }
+
+        if (name.length) {
+            if (name.val() == '' || name.val() == null) {
+                name.parent().addClass("invalid-empty");
+                errors = true;
+            } else {
+                name.parent().removeClass("invalid-empty");
             }
         }
 
