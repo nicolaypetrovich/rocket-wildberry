@@ -93,8 +93,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                         <label for="wild_file" class="label_file">
                             <span class="file_btn">Прикрепить файл</span>
                             <span class="file_text"></span>
-                            <input class="input-text invisible" name="security" id="security" autocomplete="off"
-                                   type="text" value="<?php echo $temp = wp_create_nonce( 'ajax_file_nonce' ); ?>">
+                            <input class="input-text" name="security" id="security" autocomplete="off"
+                                   type="hidden" value="<?php echo $temp = wp_create_nonce( 'ajax_file_nonce' ); ?>">
                             <input name="somefileuploader" id="wild_file" type="file" autocomplete="off">
 							<?php woocommerce_form_field( 'wild_file_url', array(
 								'type'     => 'text',

@@ -3518,7 +3518,7 @@ p {
         font-size: 15.69px;
     }
 
-    .subscription_box, .subscription_form input {
+    .subscription_box, .subscription_form .mm_subs_input {
         width: 100%;
     }
 

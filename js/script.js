@@ -64,18 +64,13 @@ function checkEmail(currInput) {
 
 function checkName(currInput) {
     var pattern = /^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}jQuery/;
-    if (!pattern.exec(jQuery(currInput).val())) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    return pattern.exec(jQuery(currInput).val());
 }
 
 function checkPhone(currInput) {
-    // var pattern = /(\(?\d{3}\)?[\- ]?)?[\d\- ]{4,10}$/;
-    var pattern;
-    pattern = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+    var pattern = /(\(?\d{3}\)?[\- ]?)?[\d\- ]{4,10}$/;
+    // var pattern;
+    // pattern = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
     return pattern.exec(currInput.val());
 }
 
@@ -83,7 +78,7 @@ jQuery('.sendBtn').click(function (e) {
     var errors = false;
     var currentForm = jQuery(this).closest("form.formSend"),
         name = currentForm.find('input[name="billing_first_name"]'),
-        phone = currentForm.find('input[name="billing_phone"], input[name="wild_request_phone"]'),
+        phone = currentForm.find('input[name="billing_phone"]'),
         email = currentForm.find('input[name="billing_email"]'),
         address = currentForm.find('input[name="billing_address_1"]');
 
@@ -310,20 +305,42 @@ jQuery(document).ready(function () {
 
     jQuery('#wild_request_call').on('click', function (e) {
         e.preventDefault();
-        var form = jQuery(this).closest('form.formSend');
-        var formSer=form.serialize();
-        jQuery.ajax({
-            url: mm_ajax_object.ajax_url,
-            type: 'post',
-            data: formSer,
-            success: function (response) {
-                jQuery('#wild_request_call').html(response);
-            },
-            error: function (response) {
-                console.log('error' + response);
-            }
+        var errors = false;
+        var currentForm = jQuery(this).closest("form.formSend"),
+            phone = currentForm.find('input[name="wild_request_phone"]');
 
-        });
+        if (phone.length) {
+            if (phone.val() == '' || phone.val() == null) {
+                phone.parent().addClass("invalid-empty");
+                errors = true;
+            } else {
+                phone.parent().removeClass("invalid-empty");
+            }
+            if (!checkPhone(phone)) {
+                phone.parent().addClass("invalid");
+                errors = true;
+            }
+            else {
+                phone.parent().removeClass("invalid");
+            }
+        }
+
+        var formSer = currentForm.serialize();
+        if (!errors) {
+            jQuery.ajax({
+                url: mm_ajax_object.ajax_url,
+                type: 'post',
+                data: formSer,
+                success: function (response) {
+                    jQuery('#wild_request_call').html(response);
+                },
+                error: function (response) {
+                    console.log('error' + response);
+                }
+
+            });
+        }
+
     });
 
     // jQuery.post(

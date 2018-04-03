@@ -163,12 +163,13 @@
                 <div class="form_item">
                     <label for="phone_modal_input"> Номер телефона: </label>
                     <div class="for_item_type">
-                        <input class="form_item_input" name="wild_request_phone" type="tel" id="phone_modal_input"
+                        <input class="form_item_input input-text" name="wild_request_phone" type="tel" id="phone_modal_input"
                                placeholder="+38 (096) 504 32 74">
                         <input class="invisible" name="prod_id" type="number" value="0">
                         <input class="invisible" name="action" type="text" value="mm_create_phone_request">
                         <input class="invisible" name="security" id="security" autocomplete="off"
-                               type="text" value="<?php echo $temp = wp_create_nonce( 'ajax_phone_nonce' ); ?>">
+                               type="hidden" value="<?php echo $temp = wp_create_nonce( 'ajax_phone_nonce' ); ?>">
+                        <span class="bags">Поле должно быть заполнено.</span>
                     </div>
 
                 </div>
