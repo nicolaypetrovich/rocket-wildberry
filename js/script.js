@@ -352,25 +352,7 @@ jQuery(document).ready(function () {
         }
 
     });
-
-    // jQuery.post(
-    //     my_ajax_object.ajax_url,
-    //     {
-    //         'action': 'add_package_cart',
-    //         'checked': this.checked
-    //     },
-    //     function (response) {
-    //
-    //         var upd2= jQuery("[name='update_cart']");
-    //
-    //         upd2.removeAttr('disabled');
-    //
-    //         upd2[0].click();
-    //
-    //         jQuery( document.body ).trigger( 'update_checkout' );
-    //     }
-    // );
-
+    
 
 //--owl-carousel--------------------
     if (jQuery('.owl-carousel').length) {

@@ -2074,7 +2074,7 @@ label.label_radio {
     font-size: 1em;
 }
 
-.product_reviews_box .star-on-png, .product_reviews_box .star-off-png {
+.product_reviews_box .star-on-png, .product_reviews_box .star-off-png, .product_reviews_box .star-half-png {
     color: #cf003e;
 }
 

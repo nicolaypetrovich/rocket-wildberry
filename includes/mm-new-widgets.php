@@ -192,7 +192,8 @@ class es_widget_register2 extends WP_Widget {
 				<?php } ?>
                     <input type="email" id="es_txt_email" class="mm_subs_input" name="es_txt_email" placeholder="Введите email" onblur="if(this.placeholder=='') this.placeholder='Введите email'" onfocus="if(this.placeholder =='Введите email' ) this.placeholder=''" onkeypress="if(event.keyCode==13) es_submit_page(event,'<?php echo $url; ?>')" value="" maxlength="225">
 
-                    <input type="button" id="es_txt_button" class="purple_btn" name="es_txt_button" onClick="return es_submit_page(event,'<?php echo $url; ?>')" value="<?php echo __( 'Subscribe', ES_TDOMAIN ); ?>">
+                    <input type="hidden" id="es_txt_buttonfirst" class="purple_btn" name="es_txt_button" onClick="return es_submit_page(event,'<?php echo $url; ?>')" value="<?php echo __( 'Subscribe', ES_TDOMAIN ); ?>">
+                <button type="submit" id="es_txt_button" class="purple_btn" name="es_txt_button_submit" onClick=" event.preventDefault(); return es_submit_page(event,'<?php echo $url; ?>')"><?php echo __( 'Subscribe', ES_TDOMAIN ); ?></button>
 
                 <div class="es_msg" id="es_widget_msg">
                     <span id="es_msg"></span>
