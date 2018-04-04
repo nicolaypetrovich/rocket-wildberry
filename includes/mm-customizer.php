@@ -98,7 +98,8 @@ function prefix_customize_register( $wp_customize ) {
 
 	$wp_customize->add_section( 'wildberry_front_page_sliders', array(
 		'title'    => 'Главная страница. Слайдер',
-		'priority' => 30
+		'priority' => 30,
+        'active_callback'=>'is_front_page'
 	) );
 
 
@@ -151,7 +152,8 @@ function prefix_customize_register( $wp_customize ) {
 
 	$wp_customize->add_section( 'wildberry_front_page_featured', array(
 		'title'    => 'Главная страница. Рекомендации и информация под рекомендациями.',
-		'priority' => 31
+		'priority' => 31,
+        'active_callback'=>'is_front_page'
 	) );
 
 	for ( $i = 1; $i <= 6; $i ++ ) {
@@ -206,8 +208,9 @@ function prefix_customize_register( $wp_customize ) {
 		'priority'       => 10,
 		'capability'     => 'edit_theme_options',
 		'theme_supports' => '',
-		'title'          => 'Модальные окна',
+		'title'          => 'Модальные окна на странице товара',
 		'description'    => '',
+        'active_callback'=>'is_product'
 	) );
 	$wp_customize->add_section( 'wildberry_popup1', array(
 		'title'    => 'Модальное окно 1. Способы доставки.',
@@ -258,7 +261,8 @@ function prefix_customize_register( $wp_customize ) {
 
 	$wp_customize->add_section( 'wildberry_checkout_section', array(
 		'title'    => 'Страница оформления заказа',
-		'priority' => 32
+		'priority' => 32,
+        'active_callback'=>'mm_is_this_a_checkout'
 	) );
 
 	for($i=1;$i<=2;$i++){

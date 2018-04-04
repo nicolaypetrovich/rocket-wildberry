@@ -14,26 +14,33 @@
                             ): ?>
                                 <div class="carousel_item">
                                     <div class="carousel_message">
-                                        <?php if (!empty(get_theme_mod("wildberry_theme_slider{$i}_name"))): ?>
-                                            <div><?php echo get_theme_mod("wildberry_theme_slider{$i}_name"); ?></div>
-                                        <?php endif; ?>
-                                        <?php if (!empty(get_theme_mod("wildberry_theme_slider{$i}_desc"))): ?>
-                                            <span><?php echo get_theme_mod("wildberry_theme_slider{$i}_desc"); ?></span>
-                                        <?php endif; ?>
-                                        <?php if (!empty(get_theme_mod("wildberry_theme_slider{$i}_link"))): ?>
-                                            <div>
+                                        <div>
+                                            <?php if (!empty(get_theme_mod("wildberry_theme_slider{$i}_name"))): ?>
+                                                <?php echo get_theme_mod("wildberry_theme_slider{$i}_name"); ?>
+                                            <?php endif; ?>
+                                        </div>
+                                        <span><?php if (!empty(get_theme_mod("wildberry_theme_slider{$i}_desc"))): ?>
+
+                                                <?php echo get_theme_mod("wildberry_theme_slider{$i}_desc"); ?>
+                                            <?php endif; ?>
+                                        </span>
+                                        <div><?php if (!empty(get_theme_mod("wildberry_theme_slider{$i}_link"))): ?>
                                                 <a href="<?php echo get_theme_mod("wildberry_theme_slider{$i}_link"); ?>"
                                                    class="red_btn">Подробнее</a>
-                                            </div>
-                                        <?php endif; ?>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                     <?php if (!empty(get_theme_mod("wildberry_theme_slider{$i}_img1"))): ?>
-
                                         <img src="<?php echo get_theme_mod("wildberry_theme_slider{$i}_img1"); ?>"
                                              alt="" class="visible">
                                     <?php endif; ?>
+
                                     <?php if (!empty(get_theme_mod("wildberry_theme_slider{$i}_img2"))): ?>
                                         <img src="<?php echo get_theme_mod("wildberry_theme_slider{$i}_img2"); ?>"
+                                             alt="" class="hide">
+
+                                    <?php elseif (!empty(get_theme_mod("wildberry_theme_slider{$i}_img1"))): ?>
+                                        <img src="<?php echo get_theme_mod("wildberry_theme_slider{$i}_img1"); ?>"
                                              alt="" class="hide">
                                     <?php endif; ?>
                                 </div>
@@ -116,7 +123,8 @@
                                         </div>
                                     </div>
                                     <div class="reviwes_text">
-                                        <?php echo $review->comment_content; ?>
+                                        <?php echo substr($review->comment_content,0,120);
+                                        echo strlen($review->comment_content)>120?'...':''?>
                                     </div>
                                 </div>
                             <?php endforeach; ?>

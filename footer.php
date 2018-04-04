@@ -161,13 +161,13 @@
         <div class="modal_box">
             <form class="formSend request_call_form">
                 <div class="form_item">
-                    <label for="name_modal_input" class="modal_input_label" >Имя: </label>
+                    <label for="name_modal_input" class="modal_input_label" >Имя*... </label>
                     <div class="for_item_type">
                         <input class="form_item_input input-text" name="wild_request_phone_name" type="text" id="name_modal_input"
                                placeholder="Александр">
                         <span class="bags">Поле должно быть заполнено.</span>
                     </div>
-                    <label for="phone_modal_input" class="modal_input_label"> Номер телефона: </label>
+                    <label for="phone_modal_input" class="modal_input_label"> Телефон*... </label>
                     <div class="for_item_type">
                         <input class="form_item_input input-text" name="wild_request_phone" type="tel" id="phone_modal_input"
                                placeholder="+38 (096) 504 32 74">

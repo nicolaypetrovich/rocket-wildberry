@@ -39,6 +39,7 @@ function custom_order_fields( $fields ) {
 	$fields['billing']['billing_phone']['class'][]       = 'form_item';
 	$fields['billing']['billing_phone']['input_class'][] = 'form_item_input';
 	$fields['billing']['billing_phone']['placeholder'] = '+38 (096) 504 32 74';
+	$fields['billing']['billing_phone']['autofocus'] =true;
 
 ////    $fields['billing']['billing_phone']['label']='some label';
 	$fields['billing']['billing_email']['priority']      = 20;
@@ -50,6 +51,7 @@ function custom_order_fields( $fields ) {
 	$fields['billing']['billing_first_name']['class'][]       = 'form_item';
 	$fields['billing']['billing_first_name']['input_class'][] = 'form_item_input';
 	$fields['billing']['billing_first_name']['placeholder'] = 'Александр';
+	$fields['billing']['billing_first_name']['autofocus'] = false;
 ////    $fields['billing']['billing_first_name']['label']='some label';
 	$fields['billing']['billing_address_1']['priority']      = 40;
 	$fields['billing']['billing_address_1']['class'][]       = 'form_item';

@@ -387,3 +387,9 @@ class T5_Nav_Menu_Walker_Simple extends Walker_Nav_Menu
         $output .= '</li>';
     }
 }
+
+
+
+function mm_is_this_a_checkout(){
+    return is_page('checkout');
+}

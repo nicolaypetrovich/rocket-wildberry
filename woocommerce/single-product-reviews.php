@@ -74,7 +74,7 @@ if (!comments_open()) {
                     'logged_in_as' => '',
                     'comment_field' => '',
                     'submit_field' => '<div class="form_item al_center">%1$s %2$s</div>',
-                    'submit_button' => '<input name="%1$s" type="submit" id="%2$s" class="%3$s purple_btn" value="%4$s" />',
+                    'submit_button' => '<button name="%1$s" type="submit" id="%2$s" class="%3$s purple_btn" value="%4$s" >%4$s</button>',
                 );
 
                 if ($account_page_url = wc_get_page_permalink('myaccount')) {

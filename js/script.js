@@ -114,7 +114,7 @@ jQuery('.sendBtn').click(function (e) {
     }
     if (name.length) {
         if (name.val() == '' || name.val() == null) {
-            name.parent().addClass("invalid-empty", "invalid");
+            name.parent().addClass("invalid-empty");
             name.parent().addClass("invalid");
             errors = true;
         } else {
@@ -177,6 +177,7 @@ jQuery(document).ready(function () {
 
     //--------------modal window------
     jQuery(".modal_btn").on("click", function (e) {
+        jQuery(".header_catalog_box").children('.header_catalog_list').removeClass('active').slideUp();
         var template = "<div class='modal_container'></div>";
         var height = jQuery(window).height();
         var modal = jQuery(this).data('modal');
@@ -305,6 +306,7 @@ jQuery(document).ready(function () {
 
     jQuery('#wild_request_call').on('click', function (e) {
         e.preventDefault();
+
         var errors = false;
         var currentForm = jQuery(this).closest("form.formSend"),
             phone = currentForm.find('input[name="wild_request_phone"]'),
@@ -329,9 +331,11 @@ jQuery(document).ready(function () {
         if (name.length) {
             if (name.val() == '' || name.val() == null) {
                 name.parent().addClass("invalid-empty");
+                name.parent().addClass("invalid");
                 errors = true;
             } else {
                 name.parent().removeClass("invalid-empty");
+                name.parent().removeClass("invalid");
             }
         }
 
