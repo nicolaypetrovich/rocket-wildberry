@@ -35,29 +35,38 @@
                     </div>
 
                     <div class="recipies_flex">
-                        <?php while (have_posts()) : the_post();
+                        <?php
+                        if (have_posts()):
+                            while (have_posts()) : the_post();
 
-                            if ('post' == get_post_type()):
+                                if ('post' == get_post_type()):
 
-                                ?>
-                                <div class="recipes_item">
-                                    <a href="<?php the_permalink(); ?>" class="product_img">
-                                        <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'single-post-thumbnail')[0]; ?>"
-                                             alt="<?php the_title(); ?>">
-                                    </a>
-                                    <a href="<?php the_permalink(); ?>" class="product_name"><?php the_title(); ?></a>
-                                    <a href="<?php the_permalink(); ?>" class="purple_btn">Читать</a>
-                                    <time datetime="<?php echo get_the_date(); ?>"><?php echo get_the_date(); ?></time>
+                                    ?>
+                                    <div class="recipes_item">
+                                        <a href="<?php the_permalink(); ?>" class="product_img">
+                                            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'single-post-thumbnail')[0]; ?>"
+                                                 alt="<?php the_title(); ?>">
+                                        </a>
+                                        <a href="<?php the_permalink(); ?>"
+                                           class="product_name"><?php the_title(); ?></a>
+                                        <a href="<?php the_permalink(); ?>" class="purple_btn">Читать</a>
+                                        <time datetime="<?php echo get_the_date(); ?>"><?php echo get_the_date(); ?></time>
 
-                                </div>
-                            <?php
-                            elseif ('product' == get_post_type()):
-                                $product = wc_get_product(get_the_ID());
-                                wc_get_template_part('content', 'product');
-                            endif;
+                                    </div>
+                                <?php
+                                elseif ('product' == get_post_type()):
+                                    $product = wc_get_product(get_the_ID());
+                                    wc_get_template_part('content', 'product');
+                                endif;
 
 
-                        endwhile; // End of the loop. ?>
+                            endwhile; // End of the loop.
+                        else:?>
+
+                               По вашему запросу нет результатов.
+
+                        <?php
+                        endif; ?>
 
                     </div>
 
