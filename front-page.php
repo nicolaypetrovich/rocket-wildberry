@@ -112,7 +112,7 @@
                                     <div class="reviwes_top">
                                         <a href="<?php echo get_permalink($review->comment_post_ID); ?>#reviews"
                                            class="reviwes_product_foto">
-                                            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($review->comment_post_ID), 'single-post-thumbnail')[0]; ?>"
+                                            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($review->comment_post_ID), 'thumbnail')[0]; ?>"
                                                  alt="">
                                         </a>
                                         <span class="author"><?php echo $review->comment_author; ?></span>

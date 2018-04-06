@@ -197,16 +197,35 @@ function mm_create_phone_request()
         'post_type' => 'phone_requests',
         'post_title' => 'Запрос звонка ' . $published_posts
     ));
+    //mail paramareters
+    $to = get_option('admin_email');
+    $subject = 'Новый запрос на звонок '.$new_post_id;
+    $body = '';
+    $headers = array('Content-Type: text/plain; charset=UTF-8');
 
-    if (isset($_POST['prod_id']) && $_POST['prod_id'] != 0) {
-        update_post_meta($new_post_id, 'product_for_requested_call', $_POST['prod_id']);
+    if (isset($_POST['wild_request_phone_name']) && !empty($_POST['wild_request_phone_name'])) {
+        update_post_meta($new_post_id, 'wild_request_phone_name', $_POST['wild_request_phone_name']);
+        $body.='Имя пользователя запросившего запрос: ' . $_POST['wild_request_phone_name']."\r\n";
     }
     if (isset($_POST['wild_request_phone']) && !empty($_POST['wild_request_phone'])) {
         update_post_meta($new_post_id, 'wild_request_phone', $_POST['wild_request_phone']);
+        $body.='Пользователь запросил звонок по телефону: ' . $_POST['wild_request_phone']."\r\n";
     }
-    if (isset($_POST['wild_request_phone_name']) && !empty($_POST['wild_request_phone_name'])) {
-        update_post_meta($new_post_id, 'wild_request_phone_name', $_POST['wild_request_phone_name']);
+
+    if (isset($_POST['prod_id']) && $_POST['prod_id'] != 0) {
+
+        update_post_meta($new_post_id, 'product_for_requested_call', $_POST['prod_id']);
+        $product = wc_get_product( $_POST['prod_id']);
+        $body.= 'Пользователь заинтересован в товаре ' . $product->get_name()."\r\n";
+        $body.= 'Ссылка на товар: ' . get_permalink($_POST['prod_id']) ."\r\n";
+
     }
+
+
+
+
+    wp_mail( $to, $subject, $body, $headers );
+
     wp_die('Запрос отправлен.');
 
 }

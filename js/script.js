@@ -197,6 +197,7 @@ jQuery(document).ready(function () {
         }
         if ('phone_call' === modal) {
             e.preventDefault();
+            jQuery('#wild_request_call').html('Отправить запрос.');
             var add_to_cart_aj = jQuery(this).siblings('a.add_to_cart_button');
             var single_add_to_cart = jQuery(this).siblings('button.single_add_to_cart_button');
             if (add_to_cart_aj.length) {

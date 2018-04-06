@@ -96,7 +96,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                             <input class="input-text" name="security" id="security" autocomplete="off"
                                    type="hidden" value="<?php echo $temp = wp_create_nonce( 'ajax_file_nonce' ); ?>">
                             <input name="somefileuploader" id="wild_file" type="file" autocomplete="off">
-							<?php woocommerce_form_field( 'wild_file_url', array(
+							<?php
+                            //file field get uploaded via ajax, and url gets added in this field. Needed because WOO ignored file fields on post
+                            woocommerce_form_field( 'wild_file_url', array(
 								'type'     => 'text',
 								'class'    => array(
 									'invisible'
