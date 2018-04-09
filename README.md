@@ -1,2 +1,2 @@
 # rocket-wildberry
-# used plugins: email-subscribers
+# used plugins: email-subscribers, WooCommerce

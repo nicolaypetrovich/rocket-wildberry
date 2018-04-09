@@ -118,3 +118,17 @@ del span{
     text-align: left;
     width: 100%;
 }
+
+.product_vew_img img{
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.aside_item{
+    min-height: 60px;
+}

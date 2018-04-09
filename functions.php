@@ -221,7 +221,7 @@ function mm_create_phone_request()
 
     }
 
-
+    $body=wordwrap($body, 70, "\r\n");
 
 
     wp_mail( $to, $subject, $body, $headers );
