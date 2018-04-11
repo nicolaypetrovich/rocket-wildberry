@@ -132,3 +132,37 @@ del span{
 .aside_item{
     min-height: 60px;
 }
+
+img.aligncenter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.form_item .form_item_input::placeholder,textarea.input-text::placeholder  { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #d4cadb;
+    opacity: 1; /* Firefox */
+}
+
+.form_item .form_item_input:-ms-input-placeholder,textarea.input-text:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #d4cadb;
+}
+
+
+
+.woocommerce-order{
+    font-size: 17px;
+    font-family: 'Proxima Nova Rg';
+    font-weight: 400;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    align-content: center;
+    text-align: center;
+}
+
+.basket_box_empty{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

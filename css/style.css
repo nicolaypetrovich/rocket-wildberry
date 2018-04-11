@@ -755,10 +755,15 @@ a[class*="_btn"] {
 .reviwes_item {
     position: relative;
     padding: 30px 15px 25px;
-    box-shadow: 1px 0 1px #b0aba6, 0 2px 6px #b0aba6, -1px 0 1px #b0aba6;
-    -webkit-box-shadow: 1px 0 1px #b0aba6, 0 2px 6px #b0aba6, -1px 0 1px #b0aba6;
+    /*box-shadow: 1px 0 1px #b0aba6, 0 2px 6px #b0aba6, -1px 0 1px #b0aba6;*/
+    /*-webkit-box-shadow: 1px 0 1px #b0aba6, 0 2px 6px #b0aba6, -1px 0 1px #b0aba6;*/
     border-radius: 10px;
-    background: url(../images/header_catalog_bg.jpg) 0 0 no-repeat;
+
+    box-shadow: 0 2px 6px #c3bdbe;
+    webkit-box-shadow: 0 2px 6px #c3bdbe;
+    background: -moz-linear-gradient(45deg, #f9f3fc 0%, #f9f3fc 0%, #f5ecfc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 1%, #f8f2fc 11%, #ffffff 100%);
+    background: -webkit-linear-gradient(45deg, #f9f3fc 0%, #f9f3fc 0%, #f5ecfc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 1%, #f8f2fc 11%, #ffffff 100%);
+    background: linear-gradient(45deg, #f9f3fc 0%, #f9f3fc 0%, #f5ecfc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 0%, #f9f3fc 1%, #f8f2fc 11%, #ffffff 100%);
 }
 
 .reviwes_top {
@@ -1895,12 +1900,17 @@ label.label_radio {
     border: 1px solid #d4cadb;
     font-size: 14px;
     line-height: 48px;
-    color: #d4cadb;
+    color: #522a6c;
     border-radius: 10px;
     font-family: 'Proxima Nova Rg';
     font-weight: normal;
     font-style: italic;
 }
+
+textarea.input-text{
+    color: #522a6c;
+}
+
 
 .form_item textarea {
     width: 100%;
@@ -2078,7 +2088,7 @@ label.label_radio {
     color: #cf003e;
 }
 
-.product_data_vew .star-on-png, .product_data_vew .star-off-png {
+.product_data_vew .star-on-png, .product_data_vew .star-off-png, .product_data_vew .star-half-png {
     font-size: 1.5em;
 }
 

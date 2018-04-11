@@ -25,13 +25,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * @hooked wc_empty_cart_message - 10
  */
+echo '<div class="woocommerce-order">';
 do_action( 'woocommerce_cart_is_empty' );
 
 if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
 
 
     <div class="basket_box_inner">
-        <div class="basket_box">
+        <div class="basket_box_empty">
             <p class="return-to-shop">
                 <a class="button wc-backward purple_btn" style="width: 200px; text-align: center;"
                    href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
@@ -43,4 +44,6 @@ if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
         </div>
 
     </div>
-<?php endif; ?>
+<?php endif;
+echo '</div>';
+?>

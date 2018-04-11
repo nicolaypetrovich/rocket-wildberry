@@ -36,16 +36,29 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
 
 
-add_action('pre_get_posts', 'custom_pre_get_posts');
+//add_action('pre_get_posts', 'custom_pre_get_posts');
 
-function custom_pre_get_posts($query)
-{
-    if (is_woocommerce()) {
-        $query->set('posts_per_page', -1);
-    }
+//function custom_pre_get_posts($query)
+//{
+//
+//    if (is_woocommerce()&&$query->query_vars['category_name']!='recipes') {
+//        $query->set('posts_per_page', -1);
+//    }
+//
+//    return $query;
+//}
 
-    return $query;
+
+add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+
+function new_loop_shop_per_page( $cols ) {
+    // $cols contains the current number of products per page based on the value stored on Options -> Reading
+    // Return the number of products you wanna show per page.
+    $cols = 181;
+    return $cols;
 }
+
+
 
 //add additional fields
 add_action('woocommerce_product_options_general_product_data', 'mm_box_add_custom_general_fields');

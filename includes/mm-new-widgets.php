@@ -54,7 +54,7 @@ class WP_Widget_Recent_Posts2 extends WP_Widget {
 		if ( ! $number ) {
 			$number = 5;
 		}
-		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
+
 
 		/**
 		 * Filters the arguments for the Recent Posts widget.
@@ -72,6 +72,7 @@ class WP_Widget_Recent_Posts2 extends WP_Widget {
 			'no_found_rows'       => true,
 			'post_status'         => 'publish',
 			'ignore_sticky_posts' => true,
+            'category_name' => 'recipes'
 		), $instance ) );
 
 		if ( ! $r->have_posts() ) {
@@ -97,9 +98,7 @@ class WP_Widget_Recent_Posts2 extends WP_Widget {
 		  					<?php echo get_the_post_thumbnail($recent_post);?>
 		  				</span>
                     </a>
-					<?php if ( $show_date ) : ?>
-						<span class="post-date"><?php echo get_the_date( '', $recent_post->ID ); ?></span>
-					<?php endif; ?>
+
 				</li>
 			<?php endforeach; ?>
 		</ul>
@@ -121,7 +120,6 @@ class WP_Widget_Recent_Posts2 extends WP_Widget {
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['number'] = (int) $new_instance['number'];
-		$instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
 		return $instance;
 	}
 
@@ -135,7 +133,7 @@ class WP_Widget_Recent_Posts2 extends WP_Widget {
 	public function form( $instance ) {
 		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 		$number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
-		$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
+
 		?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
@@ -143,8 +141,7 @@ class WP_Widget_Recent_Posts2 extends WP_Widget {
 		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
 			<input class="tiny-text" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="number" step="1" min="1" value="<?php echo $number; ?>" size="3" /></p>
 
-		<p><input class="checkbox" type="checkbox"<?php checked( $show_date ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'show_date' ); ?>"><?php _e( 'Display post date?' ); ?></label></p>
+
 		<?php
 	}
 }

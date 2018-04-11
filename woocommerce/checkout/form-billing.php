@@ -49,8 +49,8 @@ if (!defined('ABSPATH')) {
 </div>
 <div class="delivery_data_pickup">
     <div class="data_pickup_inner">
-        <span class="data_pickup_title">Самовывоз по адресу ул.Енисейская дом 1, оф.3</span>
-        <span class="data_pickup_text"> От аляудского района или "Бабушкинская" - садитесь на 17 трамвай, доезжаете до остановки "Комбинат ЛИРА". </span>
+        <span class="data_pickup_title"><?php echo get_theme_mod('wildberry_theme_checkout_address1');?></span>
+        <span class="data_pickup_text"> <?php echo get_theme_mod('wildberry_theme_checkout_address2');?> </span>
     </div>
 
     <div id="map_box" class="map">

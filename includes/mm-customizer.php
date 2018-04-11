@@ -275,6 +275,16 @@ function prefix_customize_register( $wp_customize ) {
 			) );
 
 	}
+
+	for($i=1;$i<=2;$i++){
+        $wp_customize->add_setting( 'wildberry_theme_checkout_address' . $i );
+        $wp_customize->add_control( 'wildberry_theme_checkout_address' . $i,
+            array(
+                'label'   => 'Описание адреса доставки' . $i,
+                'type'    => 'text',
+                'section' => 'wildberry_checkout_section',
+            ) );
+    }
 	$wp_customize->add_setting( 'wildberry_theme_checkout_map'  );
 	$wp_customize->add_control( 'wildberry_theme_checkout_map',
 		array(
