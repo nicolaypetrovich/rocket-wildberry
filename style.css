@@ -166,3 +166,8 @@ img.aligncenter{
     margin-right: auto;
     display: block;
 }
+
+.carousel_item{
+    height: 315px;
+    overflow: hidden;
+}

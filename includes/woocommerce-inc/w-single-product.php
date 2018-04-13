@@ -103,6 +103,7 @@ function woo_new_product_tab_content() {
 	) );
 
 	if ( ! empty( $recipes ) ) {
+	    echo '<div class="recipies_flex_box">';
 		foreach ( $recipes as $recipe ):
 			?>
             <div class="recipes_item">
@@ -118,6 +119,7 @@ function woo_new_product_tab_content() {
             </div>
 		<?php
 		endforeach;
+        echo '</div>';
 	}else{
 	    echo '<p>Не существует рецептов с этим товаром.</p>';
     }

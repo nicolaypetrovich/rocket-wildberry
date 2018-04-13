@@ -941,7 +941,7 @@ a[class*="_btn"] {
     margin-left: 5px;
 }
 
-.catalog_flex, .recipies_flex, .recipies_box_title, .product_data_inner {
+.catalog_flex, .recipies_flex, .recipies_box_title, .product_data_inner, .recipies_flex_box {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2784,7 +2784,7 @@ p {
 
     .carousel_item img {
         width: auto;
-        height: 300px;
+        /*height: 300px;*/
         max-width: inherit;
     }
 

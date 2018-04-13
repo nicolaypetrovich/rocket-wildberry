@@ -38,6 +38,7 @@ function custom_order_fields( $fields ) {
 	$fields['billing']['billing_phone']['priority']      = 10;
 	$fields['billing']['billing_phone']['class'][]       = 'form_item';
 	$fields['billing']['billing_phone']['input_class'][] = 'form_item_input';
+	$fields['billing']['billing_phone']['input_class'][] = 'mask';
 	$fields['billing']['billing_phone']['placeholder'] = '+38 (096) 504 32 74';
 	$fields['billing']['billing_phone']['autofocus'] =true;
 

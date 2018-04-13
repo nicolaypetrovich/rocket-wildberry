@@ -425,7 +425,10 @@ jQuery(document).ready(function () {
             }
         });
     }
-
+//------maskedinput-----------
+ if(jQuery(".mask").length){
+     jQuery(".mask").mask("+38(099) 99-99-999");
+}
 //------tabs------------------------
 //  if (jQuery('.tabs').length){
 //      jQuery(".tabs li").on("click", function(){
