@@ -47,11 +47,15 @@ function custom_order_fields( $fields ) {
 	$fields['billing']['billing_email']['class'][]       = 'form_item';
 	$fields['billing']['billing_email']['input_class'][] = 'form_item_input';
 	$fields['billing']['billing_email']['placeholder'] = 'tatartaf@gmail.com';
+
+
+
 ////    $fields['billing']['billing_email']['label']='some label';
 	$fields['billing']['billing_first_name']['priority']      = 30;
 	$fields['billing']['billing_first_name']['class'][]       = 'form_item';
 	$fields['billing']['billing_first_name']['input_class'][] = 'form_item_input';
 	$fields['billing']['billing_first_name']['placeholder'] = 'Александр';
+	$fields['billing']['billing_first_name']['maxlength'] = 255;
 	$fields['billing']['billing_first_name']['autofocus'] = false;
 ////    $fields['billing']['billing_first_name']['label']='some label';
 	$fields['billing']['billing_address_1']['priority']      = 40;
@@ -63,6 +67,7 @@ function custom_order_fields( $fields ) {
 	$fields['order']['order_comments']['label']    = 'Комментарий:';
 	$fields['order']['order_comments']['priority'] = 50;
 	$fields['order']['order_comments']['class'][]  = 'form_item';
+	$fields['order']['order_comments']['maxlength'] = 600;
 //   $fields['order']['order_comments']['input_class'][]='form_item_input';
 
 	$fields['billing']['billing_company']['class'][]       = 'form_item';

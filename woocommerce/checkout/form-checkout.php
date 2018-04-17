@@ -86,7 +86,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                                placeholder="Введите название, ЕГРПОУ, адрес или ОКПО"
                                onblur="if(this.placeholder=='') this.placeholder='Введите название, ЕГРПОУ, адрес или ОКПО'"
                                onfocus="if(this.placeholder =='Введите название, ЕГРПОУ, адрес или ОКПО' ) this.placeholder=''"
-                               type="email">
+                               type="email" maxlength="255">
 
                         <span class="bags">поле обязательное для заполнения</span>
                         <span class="payment_company_text">Введите название компании или загрузите файл с реквизитами</span>
@@ -117,7 +117,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                     <div class="form_item_type">
                         <input class="form_item_input" name="time_for_call" placeholder="c 9:00 до 18:00"
                                onblur="if(this.placeholder=='') this.placeholder='c 9:00 до 18:00'"
-                               onfocus="if(this.placeholder =='c 9:00 до 18:00' ) this.placeholder=''" type="text">
+                               onfocus="if(this.placeholder =='c 9:00 до 18:00' ) this.placeholder=''" type="text" maxlength="255">
                     </div>
 
                 </div>

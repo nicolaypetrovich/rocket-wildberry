@@ -19,7 +19,7 @@
             <div class="footer_item">
                 <h4 class="title2">Контакты</h4>
 				<?php if ( ! empty( get_theme_mod( 'wildberry_theme_email_footer' ) ) ): ?>
-                    <a href="mailto: <?php echo get_theme_mod( 'wildberry_theme_email_footer' ); ?>"
+                    <a href="mailto:<?php echo get_theme_mod( 'wildberry_theme_email_footer' ); ?>"
                        class="footer_email_lk"> <?php echo get_theme_mod( 'wildberry_theme_email_footer' ); ?></a>
 				<?php endif; ?>
 
@@ -164,13 +164,13 @@
                     <label for="name_modal_input" class="modal_input_label" >Имя*... </label>
                     <div class="for_item_type">
                         <input class="form_item_input input-text" name="wild_request_phone_name" type="text" id="name_modal_input"
-                               placeholder="Александр">
+                               placeholder="Александр" autocomplete="off" maxlength="255">
                         <span class="bags">Поле должно быть заполнено.</span>
                     </div>
                     <label for="phone_modal_input" class="modal_input_label"> Телефон*... </label>
                     <div class="for_item_type">
                         <input class="form_item_input input-text mask" name="wild_request_phone" type="tel" id="phone_modal_input"
-                               placeholder="+38 (096) 504 32 74">
+                               placeholder="+38 (096) 504 32 74" autocomplete="off">
                         <input class="invisible" name="prod_id" type="number" value="0">
                         <span class="bags">Поле должно быть заполнено.</span>
                     </div>

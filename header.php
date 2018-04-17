@@ -17,7 +17,7 @@
     <div class="header">
         <div class="container">
             <div class="header_top">
-                <div class="logo">
+                <div class="logo" itemscope itemtype="http://schema.org/logo">
 					<?php if ( function_exists( 'the_custom_logo' ) ) {
 						the_custom_logo();
 					}; ?>
@@ -28,7 +28,7 @@
                         <input type="text" placeholder="Поиск по сайту" class="search"
                                onblur="if(this.placeholder=='') this.placeholder='Поиск по сайту'"
                                onfocus="if(this.placeholder =='Поиск по сайту' ) this.placeholder=''"
-                               name="s">
+                               name="s" autocomplete="off">
                         <input type="hidden" name="search-type" value="normal"/>
                         <button type="submit" id="searchsubmitnormal" class="search_btn"></button>
                     </form>

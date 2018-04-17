@@ -306,6 +306,7 @@ jQuery(document).ready(function () {
     });
 
     jQuery('#wild_request_call').on('click', function (e) {
+
         e.preventDefault();
 
         var errors = false;
@@ -348,13 +349,32 @@ jQuery(document).ready(function () {
                 data: formSer,
                 success: function (response) {
                     jQuery('#wild_request_call').html(response);
+                    setTimeout(function(){
+                        if (jQuery("body").hasClass("show_modal")) {
+                            jQuery("body").removeClass("show_modal");
+                            jQuery("html").removeClass("show_modal");
+                            jQuery('.modal').appendTo('body').removeClass('active');
+                            jQuery('.modal_container').fadeOut();
+
+                        }
+                    },1000);
                 },
                 error: function (response) {
                     console.log('error' + response);
+                    setTimeout(function(){
+                        if (jQuery("body").hasClass("show_modal")) {
+                            jQuery("body").removeClass("show_modal");
+                            jQuery("html").removeClass("show_modal");
+                            jQuery('.modal').appendTo('body').removeClass('active');
+                            jQuery('.modal_container').fadeOut();
+
+                        }
+                    },1000);
                 }
 
             });
         }
+
 
     });
     

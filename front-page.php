@@ -5,7 +5,7 @@
                 <div class="main_slider">
                     <div class="owl-carousel single">
                         <?php
-                        for ($i = 0; $i < 6; $i++):
+                        for ($i = 0; $i <= 6; $i++):
                             if (!empty(get_theme_mod("wildberry_theme_slider{$i}_link")) ||
                                 !empty(get_theme_mod("wildberry_theme_slider{$i}_name")) ||
                                 !empty(get_theme_mod("wildberry_theme_slider{$i}_desc")) ||

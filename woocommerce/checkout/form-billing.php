@@ -50,11 +50,11 @@ if (!defined('ABSPATH')) {
 <div class="delivery_data_pickup">
     <div class="data_pickup_inner">
         <span class="data_pickup_title"><?php echo get_theme_mod('wildberry_theme_checkout_address1');?></span>
-        <span class="data_pickup_text"> <?php echo get_theme_mod('wildberry_theme_checkout_address2');?> </span>
+        <span class="data_pickup_text"> <?php echo get_theme_mod('wildberry_theme_checkout_address2');?></span>
     </div>
 
     <div id="map_box" class="map">
-	    <?php echo get_theme_mod('wildberry_theme_checkout_map');?>
+	    <?php echo do_shortcode('[gmap-embed id="360"]'); ?>
     </div>
 </div>
 <div class="delivery_data">

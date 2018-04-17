@@ -462,7 +462,7 @@ a[class*="_btn"] {
     cursor: pointer;
     width: 144px;
     height: 100%;
-    padding-left: 58px;
+    padding-left: 40px;
     padding-top: 10px;
     position: relative;
     color: #fff;
@@ -493,7 +493,7 @@ a[class*="_btn"] {
     position: absolute;
     top: 50%;
     margin-top: -12px;
-    left: 22px;
+    left: 12px;
 }
 
 .cart_sum {
@@ -753,6 +753,9 @@ a[class*="_btn"] {
 }
 
 .reviwes_item {
+    height: 196px;
+    overflow: hidden;
+
     position: relative;
     padding: 30px 15px 25px;
     /*box-shadow: 1px 0 1px #b0aba6, 0 2px 6px #b0aba6, -1px 0 1px #b0aba6;*/
@@ -1168,7 +1171,7 @@ a[class*="_btn"] {
 }
 
 .product_data_sum {
-    font-size: 23px;
+    font-size: 18px;
     display: block;
     font-family: 'Proxima Nova Lt';
 }
@@ -1578,15 +1581,15 @@ a[class*="_btn"] {
 }
 
 .basket_tb td.cell2 {
-    width: 32%;
+    width: 26%;
 }
 
 .basket_tb td.cell3 {
-    width: 23%;
+    width: 26%;
 }
 
 .basket_tb td.cell4 {
-    width: 26%;
+    width: 29%;
     text-align: center;
 }
 
@@ -1608,7 +1611,7 @@ a[class*="_btn"] {
 }
 
 .counter-box {
-    width: 90px;
+    width: 115px;
     border-radius: 15px;
     background-color: #e4dee9;
 }
@@ -1636,7 +1639,7 @@ a[class*="_btn"] {
 }
 
 .counter-box .counter-qt {
-    width: 30px;
+    width: 60px;
     height: 28px;
     margin-left: -3px;
     background-color: #e4dee9;
@@ -1700,6 +1703,7 @@ a[class*="_btn"] {
 }
 
 .basket_price .price-total {
+    display: block;
     font-family: 'Proxima Nova Lt';
 }
 
@@ -1889,6 +1893,12 @@ label.label_radio {
     display: inline-block;
     margin-left: 20px;
 }
+/*.form_item .form_item_input::placeholder, textarea.input-text::placeholder{*/
+   /**/
+/*}*/
+/*.form_item input::-webkit-input-placeholder {*/
+    /*line-height:100%!important;*/
+/*}*/
 
 .form_item .form_item_input {
     display: inline-block;
@@ -1899,7 +1909,7 @@ label.label_radio {
     padding: 0 30px;
     border: 1px solid #d4cadb;
     font-size: 14px;
-    line-height: 48px;
+    line-height: 100%;
     color: #522a6c;
     border-radius: 10px;
     font-family: 'Proxima Nova Rg';
@@ -2342,7 +2352,7 @@ body.show_modal {
 }
 
 .modal_box_type {
-    padding: 0 46px;
+    padding: 0px;
 }
 
 .modal_order_name {
@@ -2364,6 +2374,7 @@ body.show_modal {
 .modal_box_top {
     padding-bottom: 30px;
     border-bottom: 1px solid #d6c9df;
+    text-align: center;
 }
 
 .modal_box_bottom .purple_btn {
@@ -2746,6 +2757,13 @@ p {
         display: none;
     }
 
+    .price-total ins{
+        display: block;
+    }
+    .basket-counter-box > span{
+        margin-right: 5px;
+    }
+
     .header_search {
         width: 220px;
     }
@@ -2815,12 +2833,12 @@ p {
     }
 
     .basket_tb td.cell2 {
-        width: 28%;
+        width: 24%;
         padding-left: 10px;
     }
 
     .basket_tb td.cell3 {
-        width: 31%;
+        width: 35%;
     }
 
     .basket_tb td.cell4 {
@@ -2892,6 +2910,10 @@ p {
     [class^="menu_item_"] a {
         color: #522a6c;
     }
+    .price-total ins,.basket_price .price-total{
+        display: inline-block;
+    }
+
 
     [class^="menu_item_"] {
         border-left: none;
@@ -3454,6 +3476,45 @@ p {
         min-width: auto;
     }
 
+    .reviwes_item{
+        height: 210px;
+    }
+
+    .modal_title_box .title2{
+        font-size: 20px;
+    }
+
+    .data_pickup_text{
+        width: 100%;
+        margin-left: 10px;
+    }
+
+    .data_pickup_title{
+        width: 100%;
+        text-align: left;
+    }
+    .modal_order_price{
+        font-size: 25px;
+    }
+    .header_cart{
+        padding-top: 15px;
+    }
+    .header_cart > span{
+        font-size: 12px;
+    }
+
+    .basket_price .price-total{
+        display: block;
+        margin-top: 5px;
+    }
+
+    .counter-box{
+        width: 115px;
+    }
+
+    .counter-box .counter-qt{
+        width: 60px;
+    }
     .footer_item li a, .footer_list_item, .footer_info {
         font-size: 12.45px;
     }

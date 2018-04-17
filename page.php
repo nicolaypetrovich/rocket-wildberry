@@ -3,9 +3,9 @@
     <div id="content" class="content">
         <div class="container">
 
-            <ul class="breadcrumbs">
+            <div class="breadcrumbs">
                 <?php woocommerce_breadcrumb(); ?>
-            </ul>
+            </div>
             <div class="catalog_box_inner">
                 <?php
                 echo '<aside>';

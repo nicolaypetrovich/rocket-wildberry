@@ -3,9 +3,9 @@
     <div id="content" class="content">
         <div class="container">
 
-            <ul class="breadcrumbs">
+            <div class="breadcrumbs">
                 <?php woocommerce_breadcrumb(); ?>
-            </ul>
+            </div>
 
             <?php while ( have_posts() ) : the_post();
             if( WC()->cart->get_cart_contents_count() !== 0 )

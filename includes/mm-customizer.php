@@ -103,7 +103,7 @@ function prefix_customize_register( $wp_customize ) {
 	) );
 
 
-	for ( $i = 1; $i < 6; $i ++ ) {
+	for ( $i = 1; $i <= 6; $i ++ ) {
 		$wp_customize->add_setting( 'wildberry_theme_slider' . $i . '_link' );
 		$wp_customize->add_control( 'wildberry_theme_slider' . $i . '_link',
 			array(
@@ -285,13 +285,7 @@ function prefix_customize_register( $wp_customize ) {
                 'section' => 'wildberry_checkout_section',
             ) );
     }
-	$wp_customize->add_setting( 'wildberry_theme_checkout_map'  );
-	$wp_customize->add_control( 'wildberry_theme_checkout_map',
-		array(
-			'label'   => 'Карта',
-			'type'    => 'text',
-			'section' => 'wildberry_checkout_section',
-		) );
+
 
 
 

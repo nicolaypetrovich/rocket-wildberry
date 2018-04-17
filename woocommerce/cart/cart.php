@@ -108,7 +108,8 @@ do_action('woocommerce_before_cart'); ?>
                                             <span>Стоимость:</span>
                                             <span class="price-total">
                                             <?php
-                                            echo apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key);
+//                                            echo apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key);
+                                            echo $_product->get_price_html();
                                             ?>
                                                 </span>
                                         </div>

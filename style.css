@@ -140,9 +140,14 @@ img.aligncenter{
 }
 
 
-.form_item .form_item_input::placeholder,textarea.input-text::placeholder  { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.form_item .form_item_input::placeholder, textarea.input-text::placeholder  { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #d4cadb;
     opacity: 1; /* Firefox */
+    /*line-height:normal!important;*/
+}
+
+.form_item .form_item_input::-webkit-input-placeholder, textarea.input-text::-webkit-input-placeholder {
+    line-height:normal!important;
 }
 
 .form_item .form_item_input:-ms-input-placeholder,textarea.input-text:-ms-input-placeholder { /* Internet Explorer 10-11 */
@@ -171,3 +176,4 @@ img.aligncenter{
     height: 315px;
     overflow: hidden;
 }
+
