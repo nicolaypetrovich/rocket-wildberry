@@ -132,17 +132,20 @@ function mm_register_custom_post_type()
     $arguments = [
         'public' => false,
         'show_ui' => true,
+        'can_export' => false,
+        'has_archive' => false,
+        'exclude_from_search' => true,
+        'query_var' => false,
+        'publicly_queryable' => false,
         'register_meta_box_cb' => 'mm_calls_metabox',
-        'description' => 'Case studies for portfolio.',
+        'description' => 'Запросы звонков.',
         'menu_icon' => 'dashicons-phone', // Set icon
         'label' => 'Запросы звонков',
         'supports' => array('title'),
 
     ];
     register_post_type($type, $arguments);
-}
-
-;
+};
 
 
 function mm_calls_metabox()
