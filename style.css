@@ -1,0 +1,179 @@
+/*
+Theme Name: Wildberry
+.
+*/
+
+@import url("css/style.css");
+
+
+
+.added_to_cart, .invisible{
+    display: none;
+}
+
+tr.cart_item>td {
+    padding-bottom: 15px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+
+
+
+.recipes_box h1{
+    font-size: 30px;
+    line-height: 1.2;
+}
+.recipes_box h2{
+    font-size: 23px;
+    line-height: 1.2;
+}
+.recipes_box h3{
+    font-size: 20px;
+    line-height: 1.2;
+}
+.recipes_box h4{
+    font-size: 18px;
+    line-height: 1.2;
+}
+.recipes_box h5{
+    font-size: 17px;
+    line-height: 1.2;
+}
+.recipes_box p, .recipes_box ul li, .recipes_box ol li{
+
+    font-size: 17px;
+    font-family: 'Proxima Nova Rg';
+    font-weight: 400;
+}
+
+.recipes_box p{
+    margin-bottom: 8px;
+
+}
+.recipes_box p, .recipes_box a, .recipes_box ul li, .recipes_box ol li{
+    color: #522a6c;
+}
+.recipes_box .alignleft{
+    float: left;
+}
+
+.recipes_box .alignright{
+    float: right;
+}
+
+.recipes_box .alignright{
+    float: right;
+}
+
+.recipes_box ul{
+    list-style: initial;
+}
+.recipes_box ol{
+    list-style-type: decimal;
+}
+.recipes_box li{
+    margin-left: 20px;
+}
+.recipes_box img{
+    border: 2px solid #522a6c;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+li.active a{
+    color: white;
+}
+
+.invalid .input-text{
+    /*border: 2px solid black;*/
+    border: 2px solid red;
+}
+
+.woocommerce-ordering a{
+    color: #cf003e;
+}
+
+.request_call_form{
+    text-align: center;
+}
+.request_call_form .purple_btn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+del span{
+    text-decoration: line-through;
+}
+
+.form_item .modal_input_label{
+    text-align: left;
+    width: 100%;
+}
+
+.product_vew_img img{
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.aside_item{
+    min-height: 60px;
+}
+
+img.aligncenter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.form_item .form_item_input::placeholder, textarea.input-text::placeholder  { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #d4cadb;
+    opacity: 1; /* Firefox */
+    /*line-height:normal!important;*/
+}
+
+.form_item .form_item_input::-webkit-input-placeholder, textarea.input-text::-webkit-input-placeholder {
+    line-height:normal!important;
+}
+
+.form_item .form_item_input:-ms-input-placeholder,textarea.input-text:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #d4cadb;
+}
+
+
+
+.woocommerce-order{
+    font-size: 17px;
+    font-family: 'Proxima Nova Rg';
+    font-weight: 400;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    align-content: center;
+    text-align: center;
+}
+
+.basket_box_empty{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.carousel_item{
+    height: 315px;
+    overflow: hidden;
+}
+
